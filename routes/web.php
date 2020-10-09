@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['mentor'])->group(function () {
         Route::get('/dashboard/schedule', [MentorController::class, 'schedule'])->name('dashboard.schedule');
+        Route::post('dashboard/schedule', [MentorController::class, 'addSchedule'])->name('dashboard.add-schedule');
+        Route::put('dashboard/schedule/{schedule:id}', [MentorController::class, 'editSchedule'])->name('dashboard.edit-schedule');
+        Route::delete('dashboard/schedule/{schedule:id}', [MentorController::class, 'deleteSchedule'])->name('dashboard.delete-schedule');
     });
 
 

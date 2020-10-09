@@ -15,15 +15,122 @@
                         <td>{{ $schedule->day }}</td>
                         <td>{{ $schedule->hour }}</td>
                         <td>
-                            <button type="button" name="edit" class="btn btn-success" value="Edit" data-toggle="modal" data-target="#editSchedule">Edit</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                            <button type="button" name="edit" class="btn btn-success" data-toggle="modal" data-target="#editSchedule{{ $schedule->id }}">Edit</button>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteSchedule{{ $schedule->id }}">Delete</button>
+                            <div class="modal fade" id="editSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('dashboard.edit-schedule', ['schedule' => $schedule]) }}" method="post">
+                                                @csrf
+                                                @method('put')
+                                                <div class="form-group">
+                                                    <label>Day</label>
+                                                    <select class="custom-select @error('day') {{ 'is-invalid' }} @enderror" name="day">
+                                                        <option disabled>Select Day:</option>
+                                                        <option {{ ($schedule->day == 'sunday') ? 'selected' : ''}} value="sunday">Sunday</option>
+                                                        <option {{ ($schedule->day == 'monday') ? 'selected' : ''}} value="monday">Monday</option>
+                                                        <option {{ ($schedule->day == 'tuesday') ? 'selected' : ''}} value="tuesday">Tuesday</option>
+                                                        <option {{ ($schedule->day == 'wednesday') ? 'selected' : ''}} value="wednesday">Wednesday</option>
+                                                        <option {{ ($schedule->day == 'thursday') ? 'selected' : ''}} value="thursday">Thursday</option>
+                                                        <option {{ ($schedule->day == 'friday') ? 'selected' : ''}} value="friday">Friday</option>
+                                                        <option {{ ($schedule->day == 'saturday') ? 'selected' : ''}} value="saturday">Saturday</option>
+                                                    </select>
+                                                    @error('day')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Hour</label>
+                                                    <input class="form-control @error('hour') {{ 'is-invalid' }} @enderror" type="time" name="hour" value="{{ $schedule->hour }}">
+                                                    @error('hour')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                                <button class="btn btn-success" type="submit">Save</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="deleteSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('dashboard.edit-schedule', ['schedule' => $schedule]) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <p class="text-center">Are you sure want to delete this schedule ?</p>
+                                                <button class="btn btn-success" type="submit">Yes</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-primary">Add new schedule</button>
+
+    </div>
+</div>
+<button class="btn btn-primary" data-toggle="modal" data-target="#addSchedule">Add new schedule</button>
+<!-- pop up add -->
+<div class="modal fade" id="addSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('dashboard.add-schedule') }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <label>Day</label>
+                        <select class="custom-select @error('day') {{ 'is-invalid' }} @enderror" name="day">
+                            <option selected disabled>Select Day:</option>
+                            <option value="sunday">Sunday</option>
+                            <option value="monday">Monday</option>
+                            <option value="tuesday">Tuesday</option>
+                            <option value="wednesday">Wednesday</option>
+                            <option value="thursday">Thursday</option>
+                            <option value="friday">Friday</option>
+                            <option value="saturday">Saturday</option>
+                        </select>
+                        @error('day')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Hour</label>
+                        <input class="form-control @error('hour') {{ 'is-invalid' }} @enderror" type="time" name="hour">
+                        @error('hour')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <button class="btn btn-success" type="submit">Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 @endsection
