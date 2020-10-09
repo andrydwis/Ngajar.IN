@@ -1,0 +1,87 @@
+@extends('layout.app')
+@section('content')
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4 d-none d-lg-block"></div>
+            <div class="col-lg-8">
+                <div class="p-5">
+                    <div class="text-center">
+                        <h1 class="m-0 font-weight-bold text-primary">{{ $user->name }}</h1><br>
+                        The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
+
+                    </div> <br>
+                    @if(!$schedules->isEmpty())
+                    <div class="text-center">
+                        <h3 class="m-0 font-weight-bold text-primary">Jadwal</h3><br>
+                        <div class="row">
+                            @foreach($schedules as $schedule)
+                            <div class="col-sm-6">
+                                <!-- Ukuran kolom kartu -->
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="h6 font-weight-bold text-success text-uppercase mb-1">{{ $schedule->day }}</div>
+                                                <div class="h6 mb-0 font-weight-bold text-gray-800">{{ $schedule->hour }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @else
+                    <div class="text-center">
+                        <h3 class="m-0 font-weight-bold text-primary">Jadwal</h3><br>
+                        <!-- Ukuran kolom kartu -->
+                        <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="h6 font-weight-bold text-danger text-uppercase mb-1">Mentor belum menulis jadwal</div>
+                                        <div class="h6 mb-0 font-weight-bold text-gray-800">Mohon cek beberapa saat lagi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if(!$schedules->isEmpty())
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="p-5">
+
+                    <h2 class="m-0 font-weight-bold text-primary">Request Form</h2><br>
+                    The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
+
+                    <br><br>
+
+                    Pilih hari dan tanggal :
+                    <form class="user" action="" method="post">
+                        <div class="form-group">
+                            <select class="custom-select" name="role">
+                                <option selected disabled>Pilih tanggal :</option>
+                                @foreach($dates as $date)
+                                <option>{{ $date }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-block btn-user" type="submit">Reqest</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
+@endsection
