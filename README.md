@@ -8,8 +8,8 @@
 </p>
 
 ##How to install
-1.clone repo
-2.open file directory
-3.open cmd, then type "composer install"
-4.make new database in your phpMyAdmin set name to "laravel"
-5.open cmd, then type "php artisan migrate"
+1.clone repo<br>
+2.open file directory<br>
+3.open cmd, then type "composer install"<br>
+4.make new database in your phpMyAdmin set name to "laravel"<br>
+5.open cmd, then type "php artisan migrate"<br>
