@@ -3,6 +3,8 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\UserSkillController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,12 +31,15 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::middleware(['mentor'])->group(function () {
-        Route::get('/dashboard/schedule', [MentorController::class, 'schedule'])->name('dashboard.schedule');
-        Route::post('dashboard/schedule', [MentorController::class, 'addSchedule'])->name('dashboard.add-schedule');
-        Route::put('dashboard/schedule/{schedule:id}', [MentorController::class, 'editSchedule'])->name('dashboard.edit-schedule');
-        Route::delete('dashboard/schedule/{schedule:id}', [MentorController::class, 'deleteSchedule'])->name('dashboard.delete-schedule');
-    });
+        Route::get('/dashboard/schedule', [ScheduleController::class, 'index'])->name('dashboard.schedule');
+        Route::post('dashboard/schedule', [ScheduleController::class, 'store'])->name('dashboard.add-schedule');
+        Route::put('dashboard/schedule/{schedule:id}', [ScheduleController::class, 'update'])->name('dashboard.edit-schedule');
+        Route::delete('dashboard/schedule/{schedule:id}', [ScheduleController::class, 'destroy'])->name('dashboard.delete-schedule');
 
+        Route::get('/dashboard/skill', [UserSkillController::class, 'index'])->name('dashboard.skill');
+        Route::post('/dashboard/skill/', [UserSkillController::class, 'store'])->name('dashboard.add-skill');
+        Route::delete('/dashboard/skill/{id}', [UserSkillController::class, 'destroy'])->name('dashboard.delete-skill');
+    });
 
     Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
     Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');

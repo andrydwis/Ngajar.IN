@@ -44,6 +44,7 @@
                 @endif
                 @if(Auth::user()->role == 'mentor')
                 <a class="collapse-item" href="{{ route('dashboard.schedule') }}">Schedule</a>
+                <a class="collapse-item" href="{{ route('dashboard.skill') }}">Skill</a>
                 @endif
                 @endauth
                 @guest

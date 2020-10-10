@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-##How to install
+##How to install<br>
 1.clone repo<br>
 2.open file directory<br>
 3.open cmd, then type "composer install"<br>

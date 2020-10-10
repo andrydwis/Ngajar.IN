@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Schedule');
     }
+
+    public function skills()
+    {
+        return $this->belongsToMany('App\Models\Skill', 'user_skill');
+    }
 }

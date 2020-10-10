@@ -7,7 +7,11 @@
             <div class="col-lg-8">
                 <div class="p-5">
                     <div class="text-center">
-                        <h1 class="m-0 font-weight-bold text-primary">{{ $user->name }}</h1><br>
+                        <h1 class="m-0 font-weight-bold text-primary">{{ $user->name }}</h1>
+                        @foreach ($user->skills as $skill)
+                        <span class="badge badge-pill badge-primary">{{ $skill->skill }}</span>
+                        @endforeach
+                        <br>
                         The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
 
                     </div> <br>

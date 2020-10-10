@@ -5,7 +5,7 @@
         <div class="table-responsive" style="max-height: 442px;">
             <table class="table">
                 <thead class=" text-primary">
-                    <th>Hari</th>
+                    <th>Day</th>
                     <th>Jam</th>
                     <th>Action</th>
                 </thead>
@@ -85,10 +85,9 @@
                 </tbody>
             </table>
         </div>
-
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addSchedule">Add new schedule</button>
     </div>
 </div>
-<button class="btn btn-primary" data-toggle="modal" data-target="#addSchedule">Add new schedule</button>
 <!-- pop up add -->
 <div class="modal fade" id="addSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
