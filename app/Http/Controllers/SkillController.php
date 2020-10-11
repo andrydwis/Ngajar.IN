@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Schedule;
-use App\Models\User;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
-class ScheduleController extends Controller
+class SkillController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +15,11 @@ class ScheduleController extends Controller
     public function index()
     {
         //
-        $schedules = auth()->user()->schedules;
-
+        $skills = Skill::get();
         $data = [
-            'schedules' => $schedules
+            'skills' => $skills
         ];
-
-        return view('mentor.schedule', $data);
+        return view('admin.userSkill', $data);
     }
 
     /**
@@ -45,22 +42,13 @@ class ScheduleController extends Controller
     {
         //
         $request->validate([
-            'day' => ['required'],
-            'hour' => ['required'],
+            'skill' => ['required', 'unique:skills'],
         ]);
 
-        $user = User::find(auth()->user()->id);
-        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour', $request->hour)->get();
-        if ($checkSchedule->isEmpty()) {
-            $schedule = new Schedule();
-            $schedule->user_id = auth()->user()->id;
-            $schedule->day = $request->day;
-            $schedule->hour = $request->hour;
-            $schedule->save();
-            return back();
-        } else {
-            return back();
-        }
+        $skill = new Skill();
+        $skill->skill = $request->skill;
+        $skill->save();
+        return back();
     }
 
     /**
@@ -92,18 +80,15 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Schedule $schedule)
+    public function update(Request $request, Skill $skill)
     {
         //
         $request->validate([
-            'day' => ['required'],
-            'hour' => ['required'],
+            'skill' => ['required', 'unique:skills'],
         ]);
 
-        $schedule->day = $request->day;
-        $schedule->hour = $request->hour;
-        $schedule->save();
-
+        $skill->skill = $request->skill;
+        $skill->save();
         return back();
     }
 
@@ -113,11 +98,10 @@ class ScheduleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Schedule $schedule)
+    public function destroy(Skill $skill)
     {
         //
-        $schedule->delete();
-
+        $skill->delete();
         return back();
     }
 }

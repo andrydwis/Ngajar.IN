@@ -29,6 +29,7 @@ class ClientController extends Controller
         $endDate = Carbon::now()->addDays(30);
         $period = CarbonPeriod::create($startDate, $endDate);
         $schedules = $user->schedules;
+        $dates = null;
 
         if ($schedules) {
             foreach ($period as $date) {

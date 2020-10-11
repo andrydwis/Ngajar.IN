@@ -46,6 +46,11 @@
                 <a class="collapse-item" href="{{ route('dashboard.schedule') }}">Schedule</a>
                 <a class="collapse-item" href="{{ route('dashboard.skill') }}">Skill</a>
                 @endif
+                @if(Auth::user()->role == 'admin')
+                <a class="collapse-item" href="{{ route('dashboard.user-unverified') }}">User Unverified</a>
+                <a class="collapse-item" href="{{ route('dashboard.user-verified') }}">User Verified</a>
+                <a class="collapse-item" href="{{ route('dashboard.user-skill') }}">User Skill</a>
+                @endif
                 @endauth
                 @guest
                 <a class="collapse-item" href="{{ route('login') }}">Login</a>

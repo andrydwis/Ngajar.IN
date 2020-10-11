@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserSkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,13 +26,16 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
+    Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');
+    Route::get('/dashboard/password/edit', [DashboardController::class, 'editPassword'])->name('dashboard.edit.password');
 
-    Route::middleware(['client'])->group(function () {
+    Route::middleware(['client', 'verified'])->group(function () {
         Route::get('/dashboard/mentor-list', [ClientController::class, 'mentorList'])->name('dashboard.mentor-list');
         Route::get('/dashboard/mentor-detail/{user:name}', [ClientController::class, 'mentorDetail'])->name('dashboard.mentor-detail');
     });
 
-    Route::middleware(['mentor'])->group(function () {
+    Route::middleware(['mentor', 'verified'])->group(function () {
         Route::get('/dashboard/schedule', [ScheduleController::class, 'index'])->name('dashboard.schedule');
         Route::post('dashboard/schedule', [ScheduleController::class, 'store'])->name('dashboard.add-schedule');
         Route::put('dashboard/schedule/{schedule:id}', [ScheduleController::class, 'update'])->name('dashboard.edit-schedule');
@@ -41,7 +46,17 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/dashboard/skill/{id}', [UserSkillController::class, 'destroy'])->name('dashboard.delete-skill');
     });
 
-    Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
-    Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');
-    Route::get('/dashboard/password/edit', [DashboardController::class, 'editPassword'])->name('dashboard.edit.password');
+    Route::middleware(['admin', 'verified'])->group(function () {
+        Route::get('/dashboard/user-unverified', [AdminController::class, 'userUnverified'])->name('dashboard.user-unverified');
+        Route::patch('/dashboard/user-unverified/{user:name}', [AdminController::class, 'verify'])->name('dashboard.verify');
+        Route::get('/dashboard/user-verified', [AdminController::class, 'userVerified'])->name('dashboard.user-verified');
+        Route::get('/dashboard/user-detail/{user:name}', [AdminController::class, 'userDetail'])->name('dashboard.user-detail');
+
+        Route::get('/dashboard/user-skill', [SkillController::class, 'index'])->name('dashboard.user-skill');
+        Route::post('/dashboard/user-skill', [SkillController::class, 'store'])->name('dashboard.add-user-skill');
+        Route::patch('/dashboard/user-skill/{skill:id}', [SkillController::class, 'update'])->name('dashboard.edit-user-skill');
+        Route::delete('/dashboard/user-skill/{skill:id}', [SkillController::class, 'destroy'])->name('dashboard.delete-user-skill');
+    });
+
+    
 });

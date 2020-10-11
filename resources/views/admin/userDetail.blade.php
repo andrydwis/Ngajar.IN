@@ -14,20 +14,20 @@
                     <form class="user" action="" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="name" placeholder="Full Name" value="{{ Auth::user()->name }}" disabled>
+                            <input type="text" class="form-control form-control-user" name="name" placeholder="Full Name" value="{{ $user->name }}" disabled>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address" value="{{ Auth::user()->email }}" disabled>
+                            <input type="email" class="form-control form-control-user" name="email" placeholder="Email Address" value="{{ $user->email }}" disabled>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="phone" placeholder="Phone Number" value="{{ Auth::user()->phone }}" disabled>
+                            <input type="text" class="form-control form-control-user" name="phone" placeholder="Phone Number" value="{{ $user->phone }}" disabled>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" name="address" placeholder="Address" value="{{ Auth::user()->address }}" disabled>
+                            <input type="text" class="form-control form-control-user" name="address" placeholder="Address" value="{{ $user->address }}" disabled>
                         </div>
-                        <a href="{{ route('dashboard.edit.profile') }}" class="btn btn-primary btn-block btn-user">Update Profile</a>
-                        <a href="{{ route('dashboard.edit.password') }}" class="btn btn-primary btn-block btn-user">Update Password</a>
+                        <a href="{{ route('dashboard.user-unverified') }}" class="btn btn-primary btn-block btn-user">Back</a>
                     </form>
+
                 </div>
             </div>
         </div>
