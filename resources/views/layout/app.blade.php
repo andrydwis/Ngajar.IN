@@ -17,6 +17,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+    
+    
     
 </head>
 
@@ -26,7 +29,7 @@
     <div id="wrapper">
 
         @include('layout.sidebar')
-
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -34,10 +37,11 @@
             <div id="content">
 
                 @include('layout.topbar')
-
+               
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                
                 @yield('content')
 
                 </div>
