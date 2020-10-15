@@ -6,14 +6,16 @@
             <table class="table">
                 <thead class=" text-primary">
                     <th>Day</th>
-                    <th>Jam</th>
+                    <th>Hour Start</th>
+                    <th>Hour End</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
                     @foreach($schedules as $schedule)
                     <tr>
                         <td>{{ $schedule->day }}</td>
-                        <td>{{ $schedule->hour }}</td>
+                        <td>{{ $schedule->hour_start }}</td>
+                        <td>{{ $schedule->hour_end }}</td>
                         <td>
                             <button type="button" name="edit" class="btn btn-success" data-toggle="modal" data-target="#editSchedule{{ $schedule->id }}">Edit</button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteSchedule{{ $schedule->id }}">Delete</button>
@@ -46,9 +48,18 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Hour</label>
-                                                    <input class="form-control @error('hour') {{ 'is-invalid' }} @enderror" type="time" name="hour" value="{{ $schedule->hour }}">
-                                                    @error('hour')
+                                                    <label>Hour Start</label>
+                                                    <input class="form-control @error('hour_start') {{ 'is-invalid' }} @enderror" type="time" name="hour_start" value="{{ $schedule->hour_start }}">
+                                                    @error('hour_start')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Hour End</label>
+                                                    <input class="form-control @error('hour_end') {{ 'is-invalid' }} @enderror" type="time" name="hour_end" value="{{ $schedule->hour_end }}">
+                                                    @error('hour_end')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -117,9 +128,18 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label>Hour</label>
-                        <input class="form-control @error('hour') {{ 'is-invalid' }} @enderror" type="time" name="hour">
-                        @error('hour')
+                        <label>Hour Start</label>
+                        <input class="form-control @error('hour_start') {{ 'is-invalid' }} @enderror" type="time" name="hour_start">
+                        @error('hour_start')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Hour End</label>
+                        <input class="form-control @error('hour_end') {{ 'is-invalid' }} @enderror" type="time" name="hour_end">
+                        @error('hour_end')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

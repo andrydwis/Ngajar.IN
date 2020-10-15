@@ -46,16 +46,18 @@ class ScheduleController extends Controller
         //
         $request->validate([
             'day' => ['required'],
-            'hour' => ['required'],
+            'hour_start' => ['required', 'date_format:H:i'],
+            'hour_end' => ['required', 'date_format:H:i', 'after:hour_start']
         ]);
 
         $user = User::find(auth()->user()->id);
-        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour', $request->hour)->get();
+        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour_start', $request->hour)->get();
         if ($checkSchedule->isEmpty()) {
             $schedule = new Schedule();
             $schedule->user_id = auth()->user()->id;
             $schedule->day = $request->day;
-            $schedule->hour = $request->hour;
+            $schedule->hour_start = $request->hour_start;
+            $schedule->hour_end = $request->hour_end;
             $schedule->save();
             return back();
         } else {
@@ -97,12 +99,22 @@ class ScheduleController extends Controller
         //
         $request->validate([
             'day' => ['required'],
-            'hour' => ['required'],
+            'hour_start' => ['required', 'date_format:H:i'],
+            'hour_end' => ['required', 'date_format:H:i', 'after:hour_start']
         ]);
 
-        $schedule->day = $request->day;
-        $schedule->hour = $request->hour;
-        $schedule->save();
+        $user = User::find(auth()->user()->id);
+        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour_start', $request->hour)->get();
+        if ($checkSchedule->isEmpty()) {
+            $schedule->day = $request->day;
+            $schedule->hour_start = $request->hour_start;
+            $schedule->hour_end = $request->hour_end;
+            $schedule->save();
+            return back();
+        } else {
+            return back();
+        }
+
 
         return back();
     }

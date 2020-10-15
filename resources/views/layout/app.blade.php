@@ -19,8 +19,8 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
     
-    
-    
+    <!-- Livewire -->
+    @livewireStyles
 </head>
 
 <body id="page-top">
@@ -68,6 +68,8 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     
+    <!-- Livewire -->
+    @livewireScripts
 </body>
 
 </html>

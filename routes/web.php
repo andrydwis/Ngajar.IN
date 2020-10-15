@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UserSkillController;
@@ -33,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['client', 'verified'])->group(function () {
         Route::get('/dashboard/mentor-list', [ClientController::class, 'mentorList'])->name('dashboard.mentor-list');
         Route::get('/dashboard/mentor-detail/{user:name}', [ClientController::class, 'mentorDetail'])->name('dashboard.mentor-detail');
+
+        Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.order-request');
     });
 
     Route::middleware(['mentor', 'verified'])->group(function () {

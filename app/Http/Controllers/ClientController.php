@@ -23,7 +23,6 @@ class ClientController extends Controller
 
     public function mentorDetail(User $user)
     {
-        $month = Carbon::now();
 
         $startDate = Carbon::now();
         $endDate = Carbon::now()->addDays(30);
@@ -35,16 +34,20 @@ class ClientController extends Controller
             foreach ($period as $date) {
                 foreach ($schedules as $schedule) {
                     if ($date->is($schedule->day)) {
-                        $dates[] = $date->format('D, d-m-Y') . ' ' . $schedule->hour;
+                        $dates[] = $date->format('D, d-m-Y');
+                        $sch[] = $schedule->id;
                     }
                 }
             }
         }
 
+        //merge array
+        $dates = array_combine($dates, $sch);
+
         $data = [
             'user' => $user,
             'schedules' => $schedules,
-            'dates' => $dates
+            'dates' => $dates,
         ];
 
         return view('client.mentorDetail', $data);
