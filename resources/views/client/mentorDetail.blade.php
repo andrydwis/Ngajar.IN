@@ -4,7 +4,11 @@
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-4 d-none d-lg-block"></div>
+            <div class="col-lg-4 d-none d-lg-block">
+                @if($user->detail)
+                <img src="{{ asset('storage/' . $user->detail->photo) }}" alt="" class="img-thumbnail mx-auto d-block">
+                @endif
+            </div>
             <div class="col-lg-8">
                 <div class="p-5">
                     <div class="text-center">
@@ -13,8 +17,9 @@
                         <span class="badge badge-pill badge-primary">{{ $skill->skill }}</span>
                         @endforeach
                         <br>
-                        The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
-
+                        @if($user->detail)
+                        {{ $user->detail->description }}
+                        @endif
                     </div> <br>
                     <div class="text-center">
                         <h3 class="m-0 font-weight-bold text-primary">Jadwal</h3><br>

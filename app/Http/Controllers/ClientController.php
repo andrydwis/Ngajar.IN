@@ -12,7 +12,7 @@ class ClientController extends Controller
     //
     public function mentorList()
     {
-        $mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills')->get();
+        $mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills', 'detail')->get();
         $data = [
             'mentors' => $mentors
         ];
