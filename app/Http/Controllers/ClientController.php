@@ -12,8 +12,7 @@ class ClientController extends Controller
     //
     public function mentorList()
     {
-        $mentors = User::where('role', 'mentor')->get();
-
+        $mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills')->get();
         $data = [
             'mentors' => $mentors
         ];
@@ -28,7 +27,8 @@ class ClientController extends Controller
         $endDate = Carbon::now()->addDays(30);
         $period = CarbonPeriod::create($startDate, $endDate);
         $schedules = $user->schedules;
-        $dates = null;
+        $dates = [];
+        $sch = [];
 
         if ($schedules) {
             foreach ($period as $date) {
@@ -39,10 +39,11 @@ class ClientController extends Controller
                     }
                 }
             }
+            $dates = array_combine($dates, $sch);
         }
 
         //merge array
-        $dates = array_combine($dates, $sch);
+        
 
         $data = [
             'user' => $user,

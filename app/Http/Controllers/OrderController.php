@@ -62,8 +62,10 @@ class OrderController extends Controller
             $order->fee = ($request->duration / 60) * 20000;
             $order->status = 'pending';
             $order->save();
+            session()->flash('status', 'Order request sukses, tolong entenono mentor e acc yoo !');
             return back();
         } else {
+            session()->flash('status', 'Order request telah ada, tolong entenono sek lah !');
             return back();
         }
     }

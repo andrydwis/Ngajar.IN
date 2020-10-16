@@ -7,6 +7,9 @@ class DashboardController extends Controller
     //
     public function index()
     {
+        if(auth()->user()->status == 'unverified'){
+            session()->flash('status', 'Akun anda masih belum diverifikasi admin, haraap tunggu');
+        }
         return view('dashboard.index');
     }
 

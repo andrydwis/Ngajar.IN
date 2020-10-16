@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Schedule;
 use App\Models\User;
+use Carbon\Carbon;
 use Livewire\Component;
 
 class RequestForm extends Component
@@ -14,6 +15,24 @@ class RequestForm extends Component
     public $date_select;
     public $min;
     public $max;
+    public $hour_start;
+    public $hour_end;
+    public $duration;
+    public $fee;
+
+    public function updated()
+    {
+        if (($this->hour_start && $this->hour_end) != null) {
+            $hour_start = Carbon::make($this->hour_start);
+            $hour_end = Carbon::make($this->hour_end);
+            $this->duration = $hour_start->diffInMinutes($hour_end);
+            if ($this->duration < 60) {
+                $this->fee = 20000;
+            } else {
+                $this->fee = ($this->duration / 60) * 20000;
+            }
+        }
+    }
 
     public function render()
     {

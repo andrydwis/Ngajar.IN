@@ -51,7 +51,7 @@ class ScheduleController extends Controller
         ]);
 
         $user = User::find(auth()->user()->id);
-        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour_start', $request->hour)->get();
+        $checkSchedule = $user->schedules()->where('day', $request->day)->get();
         if ($checkSchedule->isEmpty()) {
             $schedule = new Schedule();
             $schedule->user_id = auth()->user()->id;
@@ -59,8 +59,10 @@ class ScheduleController extends Controller
             $schedule->hour_start = $request->hour_start;
             $schedule->hour_end = $request->hour_end;
             $schedule->save();
+            session()->flash('status', 'jadwal sukses dibuat !');
             return back();
         } else {
+            session()->flash('status', 'Jadwal sudah ada !');
             return back();
         }
     }
@@ -104,14 +106,16 @@ class ScheduleController extends Controller
         ]);
 
         $user = User::find(auth()->user()->id);
-        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour_start', $request->hour)->get();
+        $checkSchedule = $user->schedules()->where('day', $request->day)->get();
         if ($checkSchedule->isEmpty()) {
             $schedule->day = $request->day;
             $schedule->hour_start = $request->hour_start;
             $schedule->hour_end = $request->hour_end;
             $schedule->save();
+            session()->flash('status', 'jadwal sukses diupdate !');
             return back();
         } else {
+            session()->flash('status', 'Jadwal sudah ada !');
             return back();
         }
 
@@ -129,7 +133,7 @@ class ScheduleController extends Controller
     {
         //
         $schedule->delete();
-
+        session()->flash('status', 'jadwal sukses dihapus !');
         return back();
     }
 }

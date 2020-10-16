@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+@include('layout.alert')
 <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body">
         <div class="table-responsive" style="max-height: 442px;">

@@ -48,6 +48,7 @@ class SkillController extends Controller
         $skill = new Skill();
         $skill->skill = $request->skill;
         $skill->save();
+        session()->flash('status', 'skill sukses ditambahkan !');
         return back();
     }
 
@@ -83,13 +84,6 @@ class SkillController extends Controller
     public function update(Request $request, Skill $skill)
     {
         //
-        $request->validate([
-            'skill' => ['required', 'unique:skills'],
-        ]);
-
-        $skill->skill = $request->skill;
-        $skill->save();
-        return back();
     }
 
     /**
@@ -102,6 +96,7 @@ class SkillController extends Controller
     {
         //
         $skill->delete();
+        session()->flash('status', 'skill sukses dihapus !');
         return back();
     }
 }
