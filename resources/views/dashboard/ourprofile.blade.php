@@ -25,7 +25,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <center><img src="img/ngajar.png" width="400"></center>
+                  <center><img src="img/ngajar.png" width="400" class="img-fluid"></center>
                   <p><b>Ngajar.in</b> berdiri pada tanggal 1 Oktober 2020. Kami membangun Ngajar.in untuk membantu para mahasiswa yang kesulitan dalam mata kuliah yang sedang ditempuh di
                   Politeknik Negeri Malang. Banyaknya Mahasiswa yang tertinggal, serta sulit menerima pelajaran
                   menjadikan Ngajar.in adalah platform yang tepat untuk belajar dan memperdalam ilmu yang diinginkan.
