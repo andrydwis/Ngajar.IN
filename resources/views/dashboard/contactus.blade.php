@@ -16,7 +16,7 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <h2 class="m-0 font-weight-bold text-primary">Contact Us</h2>
-                  <center><img src="img/contact.png" width="800"></center>
+                  <center><img src="img/contact.png" width="800" class="img-fluid"></center>
                   
 
                   <!-- Address -->

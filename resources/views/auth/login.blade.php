@@ -8,7 +8,7 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                <img src="\img\booklover.png" height=400 width=400>
+                <img src="\img\booklover.png" class="img-fluid" height=400 width=400>
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
