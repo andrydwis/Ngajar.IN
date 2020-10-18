@@ -41,10 +41,12 @@
                 @auth
                 @if(Auth::user()->role == 'client')
                 <a class="collapse-item" href="{{ route('dashboard.mentor-list') }}">Mentor List</a>
+                <a class="collapse-item" href="{{ route('dashboard.order-request', ['user' => auth()->user()]) }}">Order Request</a>
                 @endif
                 @if(Auth::user()->role == 'mentor')
                 <a class="collapse-item" href="{{ route('dashboard.schedule') }}">Schedule</a>
                 <a class="collapse-item" href="{{ route('dashboard.skill') }}">Skill</a>
+                <a class="collapse-item" href="{{ route('dashboard.mentor-order-request', ['user' => auth()->user()]) }}">Order Request</a>
                 @endif
                 @if(Auth::user()->role == 'admin')
                 <a class="collapse-item" href="{{ route('dashboard.user-unverified') }}">User Unverified</a>

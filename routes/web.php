@@ -34,8 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['client', 'verified'])->group(function () {
         Route::get('/dashboard/mentor-list', [ClientController::class, 'mentorList'])->name('dashboard.mentor-list');
         Route::get('/dashboard/mentor-detail/{user:name}', [ClientController::class, 'mentorDetail'])->name('dashboard.mentor-detail');
-
-        Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.order-request');
+        Route::get('/dashboard/order-request/{user:name}', [OrderController::class, 'index'])->name('dashboard.order-request');
+        Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.add-order-request');
+        Route::delete('/dashboard/order-request/{order:id}', [OrderController::class, 'destroy'])->name('dashboard.delete-order-request');
     });
 
     Route::middleware(['mentor', 'verified'])->group(function () {
@@ -47,6 +48,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/skill', [UserSkillController::class, 'index'])->name('dashboard.skill');
         Route::post('/dashboard/skill/', [UserSkillController::class, 'store'])->name('dashboard.add-skill');
         Route::delete('/dashboard/skill/{id}', [UserSkillController::class, 'destroy'])->name('dashboard.delete-skill');
+
+        Route::get('/dashboard/mentor-order-request/{user:name}', [MentorController::class, 'orderRequest'])->name('dashboard.mentor-order-request');
+        Route::patch('/dashboard/mentor-order-request/{order:id}/accept', [MentorController::class, 'acceptRequest'])->name('dashboard.accept-mentor-order-request');
+        Route::patch('/dashboard/mentor-order-request/{order:id}/decline', [MentorController::class, 'declineRequest'])->name('dashboard.decline-mentor-order-request');
     });
 
     Route::middleware(['admin', 'verified'])->group(function () {

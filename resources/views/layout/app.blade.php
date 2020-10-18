@@ -18,9 +18,16 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
-    
+
     <!-- Livewire -->
     @livewireStyles
+
+    <!-- Midtrans -->
+    <script 
+      type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SB-Mid-client-8Rus11nWUJcOOuuV"
+    ></script>
 </head>
 
 <body id="page-top">
@@ -29,7 +36,7 @@
     <div id="wrapper">
 
         @include('layout.sidebar')
-        
+
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -37,12 +44,12 @@
             <div id="content">
 
                 @include('layout.topbar')
-               
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                
-                @yield('content')
+
+                    @yield('content')
 
                 </div>
                 <!-- /.container-fluid -->
@@ -50,7 +57,7 @@
             </div>
             <!-- End of Main Content -->
 
-           @include('layout/footer')
+            @include('layout/footer')
 
         </div>
         <!-- End of Content Wrapper -->
@@ -68,15 +75,16 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
-    
+
     <script>
-    $(function() {
-        $('[data-toggle="popover"]').popover()
-    })
-</script>
+        $(function() {
+            $('[data-toggle="popover"]').popover()
+        })
+    </script>
 
     <!-- Livewire -->
     @livewireScripts
+
 </body>
 
 </html>

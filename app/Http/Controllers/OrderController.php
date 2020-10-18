@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Schedule;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -15,9 +16,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(User $user)
     {
         //
+        $orders = Order::where('client_id', $user->id)->with('client', 'mentor')->get();
+        $data = [
+            'orders' => $orders
+        ];
+
+        return view('client.orderRequest', $data);
     }
 
     /**
@@ -39,7 +46,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
             'day' => ['required'],
             'hour_start' => ['required', 'date_format:H:i'],
@@ -59,7 +65,11 @@ class OrderController extends Controller
             $order->hour_start = $request->hour_start;
             $order->hour_end = $request->hour_end;
             $order->duration = $request->duration;
-            $order->fee = ($request->duration / 60) * 20000;
+            if ($order->duration < 60) {
+                $order->fee = 20000;
+            } else {
+                $order->fee = ($request->duration / 60) * 20000;
+            }
             $order->status = 'pending';
             $order->save();
             session()->flash('status', 'Order request sukses, tolong entenono mentor e acc yoo !');
@@ -113,5 +123,9 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+        $order->delete();
+
+        session()->flash('status', 'Order request berhasil dibatalkan, alhamdulilah :) !');
+        return back();
     }
 }
