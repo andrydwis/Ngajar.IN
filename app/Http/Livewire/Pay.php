@@ -27,7 +27,7 @@ class Pay extends Component
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => rand(),
+                'order_id' => $order->id,
                 'gross_amount' => $order->fee,
             ),
             'customer_details' => array(

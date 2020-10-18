@@ -57,20 +57,10 @@
                 @guest
                 <a class="collapse-item" href="{{ route('login') }}">Login</a>
                 <a class="collapse-item" href="{{ route('register') }}">Register</a>
+                <a class="collapse-item" href="{{ route('our-profile') }}">Our Profile</a>
+                <a class="collapse-item" href="{{ route('our-contact') }}">Our Contact</a>
                 @endguest
             </div>
-        </div>
-
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoNew" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>About Us</span>
-        </a>
-        <div id="collapseTwoNew" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">All Menu:</h6>
-                <a class="collapse-item" href="{{ route('login') }}">Our Profile</a>
-                <a class="collapse-item" href="{{ route('register') }}">Contact Us</a>
-                </div>
         </div>
     </li>
 

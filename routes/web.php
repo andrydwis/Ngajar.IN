@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SkillController;
@@ -24,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard.index');
 });
+Route::view('/our-profile', 'dashboard.ourProfile')->name('our-profile');
+Route::view('/our-contact', 'dashboard.contactUs')->name('our-contact');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -37,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/order-request/{user:name}', [OrderController::class, 'index'])->name('dashboard.order-request');
         Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.add-order-request');
         Route::delete('/dashboard/order-request/{order:id}', [OrderController::class, 'destroy'])->name('dashboard.delete-order-request');
+
+        Route::get('/dashboard/notification/handling', [NotificationController::class, 'handling'])->name('dashboard.notification.handling');
     });
 
     Route::middleware(['mentor', 'verified'])->group(function () {
