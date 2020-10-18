@@ -13,3 +13,4 @@
 3.open cmd, then type "composer install"<br>
 4.make new database in your phpMyAdmin set name to "laravel"<br>
 5.open cmd, then type "php artisan migrate"<br>
+6.open cmd, then type "php artisan db:seed" to make admin user<br>

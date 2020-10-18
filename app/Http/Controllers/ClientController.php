@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+
 
 class ClientController extends Controller
 {
@@ -43,7 +45,7 @@ class ClientController extends Controller
         }
 
         //merge array
-        
+
 
         $data = [
             'user' => $user,
@@ -53,4 +55,6 @@ class ClientController extends Controller
 
         return view('client.mentorDetail', $data);
     }
+
+    
 }

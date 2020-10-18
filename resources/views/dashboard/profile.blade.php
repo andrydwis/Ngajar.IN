@@ -5,13 +5,14 @@
         <!-- Nested Row within Card Body -->
         <div class="row">
             <div class="col-lg-5">
+                @if(auth()->user()->detail)
                 <div class="my-5 ml-5">
                     <img src="{{ asset('storage/' . auth()->user()->detail->photo) }}" alt="" class="img-thumbnail mx-auto d-block" width="200px" length="200px"><br>
                     <div class="form-group">
                     <textarea class="form-control"  rows="3" readonly>{{ auth()->user()->detail->description }}</textarea>
                     </div>
                 </div>
-
+                @endif
             </div>
             <div class="col-lg-7">
                 <div class="p-5">

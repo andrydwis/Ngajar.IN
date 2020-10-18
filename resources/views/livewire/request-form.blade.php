@@ -9,7 +9,7 @@
 
                     <br><br>
 
-                    <form class="user" action="{{ route('dashboard.order-request') }}" method="post">
+                    <form class="user" action="{{ route('dashboard.add-order-request') }}" method="post">
                         @csrf
                         <div class="form-group">
                             <input type="hidden" name="mentor_id" value="{{ $user->id }}">
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col">
                                     <label for="duration">Fee</label>
-                                    <button type="button" class="btn btn-primary btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                    <button type="button" class="btn btn-primary btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="Fee minimum adalah 20K, lebih dari 60 menit kelipatan 20K tiap 60 menitnya">
                                         ?
                                     </button>
                                     <input type="text" class="form-control form-control-user" readonly value="{{ $fee }}">
