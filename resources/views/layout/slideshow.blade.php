@@ -1,23 +1,28 @@
 
-<link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+<link href="{{ asset('css/slide.css') }}" rel="stylesheet">
     
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active"></div>
-        <div id="target" class="carousel-item"></div>
-        <div class="carousel-item"></div>
+
+  <div class="s-wrap s-type-1" role="slider">
+    <input type="radio" id="s-1" name="slider-control" checked="checked">
+    <input type="radio" id="s-2" name="slider-control">
+    <input type="radio" id="s-3" name="slider-control">
+    <ul class="s-content">
+      <li class="s-item s-item-1"></li>
+      <li class="s-item s-item-2"></li>
+      <li class="s-item s-item-3"></li>
+    </ul>
+    <div class="s-control">
+      <label class="s-c-1" for="s-1"></label>
+      <label class="s-c-2" for="s-2"></label>
+      <label class="s-c-3" for="s-3"></label>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+    <div class="s-nav">
+      <label class="s-nav-1 right" for="s-2"></label>
+      <label class="s-nav-2 left" for="s-1"></label>
+      <label class="s-nav-2 right" for="s-3"></label>
+      <label class="s-nav-3 left" for="s-2"></label>
+      <label class="s-nav-3 right" for="s-4"></label>
+    </div>
+  </div>
+
+ 
