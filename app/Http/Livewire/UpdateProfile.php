@@ -29,7 +29,7 @@ class UpdateProfile extends Component
     {
         if ($this->user->detail) {
             $this->description = $this->user->detail->description;
-            $this->photo = $this->user->detail->photo;
+            // $this->photo = $this->user->detail->photo;
         }
     }
 
@@ -51,18 +51,25 @@ class UpdateProfile extends Component
 
     public function save()
     {
-        $this->validate([
-            'photo' => 'required|image|max:4096',
-            'description' => 'required|min:10'
-        ]);
 
         if ($this->user->detail) {
-            Storage::delete($this->user->detail->photo);
             $detail = UserDetail::find($this->user->detail->id);
-            $detail->photo = $this->photo->store('photos');
+            if ($this->photo != null) {
+                $this->validate([
+                    'photo' => 'required|image|max:4096',
+                    'description' => 'required|min:10'
+                ]);
+                $detail->photo = $this->photo->store('photos');
+                Storage::delete($this->user->detail->photo);
+            } else {
+                $this->validate([
+                    'description' => 'required|min:10'
+                ]);
+            }
             $detail->description = $this->description;
             $detail->save();
             session()->flash('status', 'Profile successfully updated.');
+            return redirect()->route('dashboard.profile');
         } else {
             UserDetail::create([
                 'user_id' => $this->user->id,
@@ -70,6 +77,7 @@ class UpdateProfile extends Component
                 'description' => $this->description
             ]);
             session()->flash('status', 'Profile successfully updated.');
+            return redirect()->route('dashboard.profile');
         }
     }
 }

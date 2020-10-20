@@ -36,6 +36,5 @@
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">Update</button>
         </form>
-        @include('layout.alert')
     </div>
 </div>

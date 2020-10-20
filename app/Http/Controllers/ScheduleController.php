@@ -106,7 +106,7 @@ class ScheduleController extends Controller
         ]);
 
         $user = User::find(auth()->user()->id);
-        $checkSchedule = $user->schedules()->where('day', $request->day)->get();
+        $checkSchedule = $user->schedules()->where('day', $request->day)->where('hour_start', $request->hour_start)->where('hour_end', $request->hour_end)->get();
         if ($checkSchedule->isEmpty()) {
             $schedule->day = $request->day;
             $schedule->hour_start = $request->hour_start;

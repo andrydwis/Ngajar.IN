@@ -26,7 +26,7 @@ class MentorList extends Component
 
     public function resetFilterSkill()
     {
-        $this->mentors = User::where('role', 'mentor')->with('skills', 'detail')->get();
+        $this->mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills', 'detail')->get();
         $this->reset('skill_selected');
     }
 

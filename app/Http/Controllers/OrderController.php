@@ -52,7 +52,7 @@ class OrderController extends Controller
             'hour_end' => ['required', 'date_format:H:i', 'after:hour_start']
         ]);
 
-        $check = Order::where('client_id', auth()->user()->id)->where('mentor_id', $request->mentor_id)->where('status', 'pending')->orWhere('status', 'ongoing')->get();
+        $check = Order::where('client_id', auth()->user()->id)->where('mentor_id', $request->mentor_id)->where('status', '!=' , 'finished' )->get();
         if ($check->isEmpty()) {
             $hour_start = Carbon::make($request->hour_start);
             $hour_end = Carbon::make($request->hour_end);
