@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
     Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');
     Route::get('/dashboard/password/edit', [DashboardController::class, 'editPassword'])->name('dashboard.edit.password');
+    Route::view('/dashboard/chat', 'dashboard.chat')->name('dashboard.chat');
 
     Route::middleware(['client', 'verified'])->group(function () {
         Route::get('/dashboard/mentor-list', [ClientController::class, 'mentorList'])->name('dashboard.mentor-list');

@@ -20,8 +20,10 @@ class OrderController extends Controller
     {
         //
         $orders = Order::where('client_id', $user->id)->with('client', 'mentor')->get();
+        $date_now = Carbon::now();
         $data = [
-            'orders' => $orders
+            'orders' => $orders,
+            'date_now' => $date_now
         ];
 
         return view('client.orderRequest', $data);
@@ -128,4 +130,6 @@ class OrderController extends Controller
         session()->flash('status', 'Order request berhasil dibatalkan, alhamdulilah :) !');
         return back();
     }
+
+
 }

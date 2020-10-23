@@ -62,4 +62,7 @@
 @if(!$schedules->isEmpty())
 @livewire('request-form', ['user' => $user, 'dates' => $dates])
 @endif
+
+@livewire('show-chat', ['reciever' => $user])
+
 @endsection

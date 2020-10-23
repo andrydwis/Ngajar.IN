@@ -54,6 +54,8 @@
                                         </div>
                                         @elseif($order->status == 'waiting payment')
                                         @livewire('pay',['order' => $order])
+                                        @elseif($order->status == 'payment successful')
+                                        @livewire('start-order',['order' => $order])
                                         @endif
                                     </td>
                                 </tr>
