@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\FinishOrder;
 use App\Models\Order;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -32,7 +33,7 @@ class StartOrder extends Component
         if($isFinish && !$isGoing){
             $this->condition = 'over';
         }else{
-            $this->condition = 'ongoing';
+            $this->condition = 'start';
         }
     }
 
@@ -43,6 +44,9 @@ class StartOrder extends Component
 
     public function start(Order $order)
     {
-        dd($order);
+        $now = Carbon::now();
+        $until = $order->hour_end;
+        $duration = $now->diffInMinutes($until);
+        FinishOrder::dispatch($order)->delay(now()->addMinutes($duration));;
     }
 }
