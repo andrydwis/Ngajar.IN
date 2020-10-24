@@ -12,6 +12,8 @@ class ShowChat extends Component
     public $chats;
     public $chat_message;
 
+    protected $listeners = ['send'];
+
     public function mount()
     {
         $this->sender = auth()->user();
@@ -36,5 +38,11 @@ class ShowChat extends Component
         $chat->save();
 
         $this->reset('chat_message');
+    }
+
+    public function delete($id)
+    {
+        $chat = Chat::find($id);
+        $chat->delete();
     }
 }

@@ -4,28 +4,37 @@
             Chat dengan {{ $reciever->name }}
         </div>
         <div class="card-body">
-            <div wire:poll>
-                @forelse($chats as $chat)
-                @if($chat->sender_id == $sender->id)
-                <div class="card bg-success text-white mt-1">
-                    <div class="card-body">
-                        {{ $chat->chat }}
+            <div style="overflow-y:auto; height:200px" id="chat-container">
+                <div wire:poll>
+                    @forelse($chats as $chat)
+                    @if($chat->sender_id == $sender->id)
+                    <div class="card bg-success text-white mt-1">
+                        <div class="card-body">
+                            {{ $chat->chat }}
+                        </div>
+                        <div class="card-footer text-secondary">
+                            {{ $chat->created_at->diffForHumans() }}
+                            <button class="btn btn-sm btn-circle btn-danger float-right" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
+                        </div>
                     </div>
-                </div>
-                @elseif($chat->reciever_id == $sender->id)
-                <div class="card bg-primary text-white mt-1">
-                    <div class="card-body">
-                        {{ $chat->chat }}
+                    @elseif($chat->reciever_id == $sender->id)
+                    <div class="card bg-primary text-white mt-1">
+                        <div class="card-body">
+                            {{ $chat->chat }}
+                        </div>
+                        <div class="card-footer text-secondary">
+                            {{ $chat->created_at->diffForHumans() }}
+                        </div>
                     </div>
-                </div>
-                @endif
-                @empty
-                <div class="card bg-danger text-white mt-1">
-                    <div class="card-body">
-                        Chat masih kosong kayak hatimu kyaaa..  >.<
+                    @endif
+                    @empty
+                    <div class="card bg-danger text-white mt-1">
+                        <div class="card-body">
+                            Chat masih kosong kayak hatimu kyaaa..  >.<
+                        </div>
                     </div>
+                    @endforelse
                 </div>
-                @endforelse
             </div>
             <br>
             <form action="" wire:submit.prevent="send">
@@ -53,3 +62,13 @@
         </div>
     </div>
 </div>
+@section('script')
+<script>
+    const chat = document.getElementById("chat-container");
+    function updateScroll(){
+        chat.scrollTop = chat.scrollHeight;
+    }
+    updateScroll();
+
+</script>
+@endsection

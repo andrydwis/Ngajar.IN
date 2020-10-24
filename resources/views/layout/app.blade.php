@@ -85,6 +85,7 @@
     <!-- Livewire -->
     @livewireScripts
 
+    @yield('script')
 </body>
 
 </html>
