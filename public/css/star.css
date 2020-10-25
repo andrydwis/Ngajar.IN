@@ -1,0 +1,32 @@
+@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+.box{
+  direction: rtl;
+}
+
+.box ion-icon{
+  font-size: 40px;
+  color: #313131;
+  transition: 0.3s all;
+}
+
+.box ion-icon:hover{
+  color: #f1c40f;
+
+}
+
+.b1:hover ~ ion-icon{
+  color: #f1c40f;
+}
+
+.b2:hover ~ ion-icon{
+  color: #f1c40f;
+}
+.b3:hover ~ ion-icon{
+  color: #f1c40f;
+}
+.b4:hover ~ ion-icon{
+  color: #f1c40f;
+}
+.b5:hover ~ ion-icon{
+  color: #f1c40f;
+}

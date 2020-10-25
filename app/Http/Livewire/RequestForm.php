@@ -10,7 +10,7 @@ use Livewire\Component;
 class RequestForm extends Component
 {
 
-    public User $user;
+    public $user;
     public $dates;
     public $date_select;
     public $min;
