@@ -28,7 +28,6 @@
     <style type="text/css">
         body {
             background: #101123;
-            font-family: sans-serif;
         }
 
         .main {
@@ -60,7 +59,7 @@
         #hours,
         #minutes,
         #seconds {
-            padding: 20px;
+            padding: 5px;
             border-radius: 5px;
             font-size: 20px;
             background: #fb8e00;

@@ -1,15 +1,14 @@
 <div>
     <div class="row">
         <div class="container-fluid">
-            <h1 class="h3 mb-0 text-gray-800">Pembelajaran</h1><br>
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center">
-                                <h1 class="m-0 font-weight-bold text-primary">Proses Pembelajaran</h1><br>
-                                Anda sedang diajar
-                                <br><br>
+                                <br>
+                                <h1 class="m-0 font-weight-bold text-primary">Pembelajaran sedang berlangsung...</h1><br>
+                                <br>
 
                                 <div class="row">
 
