@@ -68,6 +68,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary btn-block btn-user" type="submit">Reqest</button>
+                        <a href="{{ route('dashboard.chat-to-mentor', ['user' => $user]) }}" class="btn btn-success btn-block btn-user">Chat dengan {{ $user->name }}</a>
                     </form>
                 </div>
             </div>

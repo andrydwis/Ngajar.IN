@@ -40,7 +40,7 @@
             <form action="" wire:submit.prevent="send">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-10">
+                        <div class="col-8">
                             <input type="text" class="form-control @error('chat_message') {{ 'is-invalid' }} @enderror" wire:model="chat_message">
                             @error('chat_message')
                             <div class="invalid-feedback">
@@ -55,6 +55,9 @@
                         @enderror
                         <div class="col-2">
                             <button class="btn btn-success btn-block">Send</button>
+                        </div>
+                        <div class="col-2">
+                            <a href="{{ route('dashboard.mentor-detail', ['user' => $reciever]) }}" class="btn btn-primary btn-block">Back</a>
                         </div>
                     </div>
                 </div>

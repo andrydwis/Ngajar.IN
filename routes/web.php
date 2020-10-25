@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');
     Route::get('/dashboard/password/edit', [DashboardController::class, 'editPassword'])->name('dashboard.edit.password');
     Route::view('/dashboard/chat', 'dashboard.chat')->name('dashboard.chat');
+    
 
     Route::middleware(['client', 'verified'])->group(function () {
         Route::get('/dashboard/mentor-list', [ClientController::class, 'mentorList'])->name('dashboard.mentor-list');
@@ -42,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.add-order-request');
         Route::delete('/dashboard/order-request/{order:id}', [OrderController::class, 'destroy'])->name('dashboard.delete-order-request');
         Route::get('/dashboard/order-request/{order:id}/ongoing', [OrderController::class, 'ongoing'])->name('dashboard.ongoing-order-request');
+        Route::get('/dashboard/chat/{user:name}', [ClientController::class, 'chat'])->name('dashboard.chat-to-mentor');
 
         Route::get('/dashboard/notification/handling', [NotificationController::class, 'handling'])->name('dashboard.notification.handling');
     });

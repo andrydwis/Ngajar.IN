@@ -12,8 +12,6 @@ class ShowChat extends Component
     public $chats;
     public $chat_message;
 
-    protected $listeners = ['send'];
-
     public function mount()
     {
         $this->sender = auth()->user();

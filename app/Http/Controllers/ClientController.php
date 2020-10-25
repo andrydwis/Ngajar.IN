@@ -56,5 +56,10 @@ class ClientController extends Controller
         return view('client.mentorDetail', $data);
     }
 
-    
+    public function chat(User $user){
+        $data = [
+            'user' => $user,
+        ];
+        return view('client.chat-to-mentor', $data);
+    }
 }

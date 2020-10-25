@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Schedule;
-use App\Models\User;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -46,4 +45,5 @@ class RequestForm extends Component
         $this->min = $schedule->hour_start;
         $this->max = $schedule->hour_end;
     }
+
 }
