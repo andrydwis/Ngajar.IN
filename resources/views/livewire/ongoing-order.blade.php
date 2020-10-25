@@ -58,7 +58,7 @@
                                                 <div class="row no-gutters align-items-center">
                                                     <div class="card" style="width:400px">
                                                         @if($order->client->detail)
-                                                        <img class="card-img-top" src="{{ asset('storage/' . $order->mentor->client->photo) }}" alt="Card image" style="width:100%">
+                                                        <img class="card-img-top" src="{{ asset('storage/' . $order->client->detail->photo) }}" alt="Card image" style="width:100%">
                                                         @endif
                                                         <div class="card-body">
                                                             <p class="card-text">{{ $order->client->name }}</p>
@@ -73,7 +73,7 @@
                                 </div>
 
                                 <br>
-                                <a href="#" class="btn btn-primary">Stop</a>
+                                <a href="#" class="btn btn-primary" wire:click="stop">Stop</a>
 
                             </div>
                         </div>

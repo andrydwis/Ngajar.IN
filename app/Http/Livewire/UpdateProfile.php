@@ -72,12 +72,19 @@ class UpdateProfile extends Component
             return redirect()->route('dashboard.profile');
         } else {
             if ($this->photo != null) {
+                $this->validate([
+                    'photo' => 'required|image|max:4096',
+                    'description' => 'required|min:10'
+                ]);
                 UserDetail::create([
                     'user_id' => $this->user->id,
                     'photo' => $this->photo->store('photo'),
                     'description' => $this->description
                 ]);
             } else {
+                $this->validate([
+                    'description' => 'required|min:10'
+                ]);
                 UserDetail::create([
                     'user_id' => $this->user->id,
                     'description' => $this->description
