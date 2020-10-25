@@ -57,9 +57,13 @@
                                         @elseif($order->status == 'payment successful')
                                         @livewire('start-order',['order' => $order])
                                         @endif
+                                        @include('client.reviewForm')
                                     </td>
+                                    
                                 </tr>
                                 @endforeach
+
+                                
                             </tbody>
                         </table>
                     </div>

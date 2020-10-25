@@ -1,6 +1,7 @@
 @extends('layout.app')
 @section('content')
 @include('layout.alert')
+
 <div class="card shadow mb-4">
     <div class="card-body">
         <div class="row">
@@ -52,11 +53,13 @@
                             </div>
                             @endforelse
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </div>                    
+                </div>                
+            </div>            
         </div>
-    </div>
+        
+        @include('mentor.mentorReview')
+    </div>    
 </div>
 
 @if(!$schedules->isEmpty())
