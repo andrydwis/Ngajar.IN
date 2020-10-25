@@ -33,7 +33,7 @@
                             @endif
                             <div class="card-body">
                                 <div class="text-center">
-                                    <h4 class="card-title">{{ $mentor->name }}</h4>
+                                    <h4 class="card-title text-secondary">{{ $mentor->name }}</h4>
                                     @foreach($mentor->skills as $skill)
                                     <span class="badge badge-pill badge-primary">{{ $skill->skill }}</span>
                                     @endforeach

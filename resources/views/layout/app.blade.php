@@ -61,6 +61,7 @@
         #minutes,
         #seconds {
             padding: 20px;
+            border-radius: 5px;
             font-size: 20px;
             background: #fb8e00;
             display: inline-block;
