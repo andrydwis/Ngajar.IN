@@ -131,5 +131,15 @@ class OrderController extends Controller
         return back();
     }
 
+    public function ongoing(Order $order) 
+    {
+        if($order->status != 'ongoing'){
+            return redirect()->route('dashboard.order-request', ['user' => auth()->user()]);
+        }
 
+        $data = [
+            'order' => $order
+        ];
+        return view('client.ongoingOrderRequest', $data);
+    }
 }

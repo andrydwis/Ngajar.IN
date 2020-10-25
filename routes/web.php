@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/order-request/{user:name}', [OrderController::class, 'index'])->name('dashboard.order-request');
         Route::post('/dashboard/order-request', [OrderController::class, 'store'])->name('dashboard.add-order-request');
         Route::delete('/dashboard/order-request/{order:id}', [OrderController::class, 'destroy'])->name('dashboard.delete-order-request');
+        Route::get('/dashboard/order-request/{order:id}/ongoing', [OrderController::class, 'ongoing'])->name('dashboard.ongoing-order-request');
 
         Route::get('/dashboard/notification/handling', [NotificationController::class, 'handling'])->name('dashboard.notification.handling');
     });

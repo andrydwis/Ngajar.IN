@@ -48,5 +48,10 @@ class StartOrder extends Component
         $until = $order->hour_end;
         $duration = $now->diffInMinutes($until);
         FinishOrder::dispatch($order)->delay(now()->addMinutes($duration));;
+
+        $order->status = 'ongoing';
+        $order->save();
+
+        return redirect()->route('dashboard.ongoing-order-request', ['order' => $order]);
     }
 }

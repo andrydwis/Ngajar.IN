@@ -56,6 +56,8 @@
                                         @livewire('pay',['order' => $order])
                                         @elseif($order->status == 'payment successful')
                                         @livewire('start-order',['order' => $order])
+                                        @elseif($order->status == 'ongoing')
+                                        <a href="{{ route('dashboard.ongoing-order-request', ['order' => $order]) }}" class="btn btn-primary">ongoing</a>
                                         @endif
                                     </td>
                                 </tr>
