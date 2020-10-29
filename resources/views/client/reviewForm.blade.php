@@ -18,12 +18,17 @@
                     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
                     <link rel="stylesheet" href="{{ asset('css/star.css') }}">
 
-                    <div class="box">
-                      <ion-icon name="star" class="b1"></ion-icon>
-                      <ion-icon name="star" class="b2"></ion-icon>
-                      <ion-icon name="star" class="b3"></ion-icon>
-                      <ion-icon name="star" class="b4"></ion-icon>
-                      <ion-icon name="star" class="b5"></ion-icon>
+                    <div class="wrapper">
+                      <input type="radio" id="r1" name="rg1">
+                      <label for="r1"><ion-icon name="star"></ion-icon></label>
+                      <input type="radio" id="r2" name="rg1">
+                      <label for="r2"><ion-icon name="star"></ion-icon></label>
+                      <input type="radio" id="r3" name="rg1">
+                      <label for="r3"><ion-icon name="star"></ion-icon></label>
+                      <input type="radio" id="r4" name="rg1">
+                      <label for="r4"><ion-icon name="star"></ion-icon></label>
+                      <input type="radio" id="r5" name="rg1">
+                      <label for="r5"><ion-icon name="star"></ion-icon></label>
                     </div>
                   </center>             
                   </div>
