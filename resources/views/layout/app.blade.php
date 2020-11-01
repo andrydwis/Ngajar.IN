@@ -37,12 +37,6 @@
             color: #696969;
         }
 
-        h4 {
-            margin-bottom: 40px;
-            font-size: 30px;
-            color: #fff;
-        }
-
         #clock>div {
             border-radius: 5px;
             background: #ffa500;

@@ -58,8 +58,9 @@
                                         @livewire('start-order',['order' => $order])
                                         @elseif($order->status == 'ongoing')
                                         <a href="{{ route('dashboard.ongoing-order-request', ['order' => $order]) }}" class="btn btn-primary">ongoing</a>
+                                        @elseif($order->status == 'finished')
+                                        @livewire('show-rating', ['order' => $order])
                                         @endif
-                                        @include('client.reviewForm')
                                     </td>
                                     
                                 </tr>

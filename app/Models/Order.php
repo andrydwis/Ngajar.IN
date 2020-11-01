@@ -29,4 +29,9 @@ class Order extends Model
     {
         return $this->belongsTo('App\Models\User', 'mentor_id');
     }
+
+    public function rating()
+    {
+        return $this->hasOne('App\Models\Rating');
+    }
 }

@@ -6,7 +6,6 @@ use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
-use Illuminate\Http\Request;
 
 
 class ClientController extends Controller
@@ -14,7 +13,7 @@ class ClientController extends Controller
     //
     public function mentorList()
     {
-        $mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills', 'detail')->get();
+        $mentors = User::where('role', 'mentor')->where('status', 'verified')->with('skills', 'detail', 'ratings')->get();
         $data = [
             'mentors' => $mentors
         ];
@@ -44,19 +43,24 @@ class ClientController extends Controller
             $dates = array_combine($dates, $sch);
         }
 
-        //merge array
-
+        if ($user->ratings->isNotEmpty()) {
+            $sum = $user->ratings->sum('rating');
+            $count = $user->ratings->count('rating');
+            $rating = round(($sum / $count), 1);
+        }
 
         $data = [
             'user' => $user,
             'schedules' => $schedules,
             'dates' => $dates,
+            'rating' => $rating ?? 0,
         ];
 
         return view('client.mentorDetail', $data);
     }
 
-    public function chat(User $user){
+    public function chat(User $user)
+    {
         $data = [
             'user' => $user,
         ];

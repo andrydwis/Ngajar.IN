@@ -34,6 +34,14 @@
                             <div class="card-body">
                                 <div class="text-center">
                                     <h4 class="card-title text-secondary">{{ $mentor->name }}</h4>
+                                    @if($mentor->ratings->isNotEmpty())
+                                    @php
+                                    $sum = $mentor->ratings->sum('rating');
+                                    $count = $mentor->ratings->count('rating');
+                                    $rating = round(($sum / $count), 1);
+                                    @endphp
+                                    <span class="badge badge-pill badge-primary">{{$rating}} Star <i class="fas fa-star"></i></span>
+                                    @endif
                                     @foreach($mentor->skills as $skill)
                                     <span class="badge badge-pill badge-primary">{{ $skill->skill }}</span>
                                     @endforeach

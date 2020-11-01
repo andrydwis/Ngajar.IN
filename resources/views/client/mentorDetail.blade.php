@@ -14,6 +14,7 @@
                 <div class="p-5">
                     <div class="text-center">
                         <h1 class="m-0 font-weight-bold text-primary">{{ $user->name }}</h1>
+                        <span class="badge badge-pill badge-primary">{{$rating}} Star <i class="fas fa-star"></i></span>
                         @foreach ($user->skills as $skill)
                         <span class="badge badge-pill badge-primary">{{ $skill->skill }}</span>
                         @endforeach
