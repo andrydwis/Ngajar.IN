@@ -12,7 +12,7 @@ class MentorController extends Controller
     //
     public function orderRequest(User $user)
     {
-        $orders = Order::where('mentor_id', $user->id)->with('client', 'mentor')->get();
+        $orders = Order::where('mentor_id', $user->id)->with('client', 'mentor')->paginate(2);
         $data = [
             'orders' => $orders
         ];

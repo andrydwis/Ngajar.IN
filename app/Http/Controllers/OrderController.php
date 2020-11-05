@@ -19,7 +19,7 @@ class OrderController extends Controller
     public function index(User $user)
     {
         //
-        $orders = Order::where('client_id', $user->id)->with('client', 'mentor')->get();
+        $orders = Order::where('client_id', $user->id)->with('client', 'mentor')->paginate(2);
         $date_now = Carbon::now();
         $data = [
             'orders' => $orders,
@@ -71,6 +71,7 @@ class OrderController extends Controller
                 $order->fee = 20000;
             } else {
                 $order->fee = ($request->duration / 60) * 20000;
+                $order->fee = round($order->fee, -3);
             }
             $order->status = 'pending';
             $order->save();

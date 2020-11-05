@@ -19,34 +19,6 @@
                                     {{ $message }}
                                 </div>
                                 @enderror
-                                <center>
-                                    <meta charset="utf-8">
-                                    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-                                    <link rel="stylesheet" href="{{ asset('css/star.css') }}">
-
-                                    <div class="wrapper">
-                                        <input type="radio" id="r1" name="star" wire:model="star" value="1">
-                                        <label for="r1">
-                                            <ion-icon name="star"></ion-icon>
-                                        </label>
-                                        <input type="radio" id="r2" name="star" wire:model="star" value="2">
-                                        <label for="r2">
-                                            <ion-icon name="star"></ion-icon>
-                                        </label>
-                                        <input type="radio" id="r3" name="star" wire:model="star" value="3">
-                                        <label for="r3">
-                                            <ion-icon name="star"></ion-icon>
-                                        </label>
-                                        <input type="radio" id="r4" name="star" wire:model="star" value="4">
-                                        <label for="r4">
-                                            <ion-icon name="star"></ion-icon>
-                                        </label>
-                                        <input type="radio" id="r5" name="star" wire:model="star" value="5">
-                                        <label for="r5">
-                                            <ion-icon name="star"></ion-icon>
-                                        </label>
-                                    </div>
-                                </center>
                             </div>
                             <div class="form-group">
                                 <center>

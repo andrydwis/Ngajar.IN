@@ -4,7 +4,16 @@
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-5">
+                @if($user->detail)
+                <div class="my-5 ml-5">
+                    <img src="{{ asset('storage/' . $user->detail->photo) }}" alt="" class="img-thumbnail mx-auto d-block" width="200px" length="200px"><br>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3" readonly>{{ $user->detail->description }}</textarea>
+                    </div>
+                </div>
+                @endif
+            </div>
             <div class="col-lg-7">
                 <div class="p-5">
                     <div class="text-center">
@@ -25,9 +34,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control form-control-user" name="address" placeholder="Address" value="{{ $user->address }}" disabled>
                         </div>
-                        <a href="{{ route('dashboard.user-unverified') }}" class="btn btn-primary btn-block btn-user">Back</a>
                     </form>
-
                 </div>
             </div>
         </div>

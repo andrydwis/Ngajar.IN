@@ -29,6 +29,7 @@ class RequestForm extends Component
                 $this->fee = 20000;
             } else {
                 $this->fee = ($this->duration / 60) * 20000;
+                $this->fee = round($this->fee, -3);
             }
         }
     }
