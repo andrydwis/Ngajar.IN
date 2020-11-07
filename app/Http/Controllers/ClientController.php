@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use PDF;
 
 
 class ClientController extends Controller
@@ -65,5 +66,16 @@ class ClientController extends Controller
             'user' => $user,
         ];
         return view('client.chat-to-mentor', $data);
+    }
+
+    public function invoice(Order $order)
+    {
+    
+
+        $data = [
+            'order' => $order
+        ];
+        $pdf =  PDF::loadView('invoice', $data);
+        return $pdf->stream();
     }
 }

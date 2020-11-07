@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/chat/{user:name}', [ClientController::class, 'chat'])->name('dashboard.chat-to-mentor');
 
         Route::get('/dashboard/notification/handling', [NotificationController::class, 'handling'])->name('dashboard.notification.handling');
+        Route::get('/dashboard/invoice/{order:id}', [ClientController::class, 'invoice'])->name('dashboard.invoice');
     });
 
     Route::middleware(['mentor', 'verified'])->group(function () {

@@ -60,6 +60,9 @@
                                         <a href="{{ route('dashboard.ongoing-order-request', ['order' => $order]) }}" class="btn btn-primary">ongoing</a>
                                         @elseif($order->status == 'finished')
                                         @livewire('show-rating', ['order' => $order])
+                                        <br>
+                                        <a href="{{ route('dashboard.invoice', ['order' => $order]) }}" class="btn btn-primary">Invoice</a>
+                                       
                                         @endif
                                     </td>
                                     
