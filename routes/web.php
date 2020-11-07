@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/profile/edit', [DashboardController::class, 'editProfile'])->name('dashboard.edit.profile');
     Route::get('/dashboard/password/edit', [DashboardController::class, 'editPassword'])->name('dashboard.edit.password');
     Route::view('/dashboard/chat', 'dashboard.chat')->name('dashboard.chat');
+    Route::get('/dashboard/mark-as-read-all', [NotificationController::class, 'markAsReadAll'])->name('dashboard.mark-as-read-all');
     
 
     Route::middleware(['client', 'verified'])->group(function () {

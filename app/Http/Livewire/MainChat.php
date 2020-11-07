@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Chat;
 use App\Models\User;
+use App\Notifications\newMessage;
 use Livewire\Component;
 
 class MainChat extends Component
@@ -52,6 +53,9 @@ class MainChat extends Component
         $chat->save();
 
         $this->reset('chat_message');
+        //send notification
+        $reciever = User::find($this->reciever_select);
+        $reciever->notify(new newMessage($chat));
     }
 
     public function select(User $reciever)

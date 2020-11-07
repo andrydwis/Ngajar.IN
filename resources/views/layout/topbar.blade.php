@@ -8,7 +8,9 @@
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-
+        @auth()
+        @include('layout.notification')
+        @endauth
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->

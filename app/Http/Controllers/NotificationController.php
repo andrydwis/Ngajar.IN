@@ -25,4 +25,10 @@ class NotificationController extends Controller
             return redirect()->route('dashboard.order-request', ['user' => auth()->user()]);
         }
     }
+
+    public function markAsReadAll()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return back();
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Chat;
+use App\Notifications\newMessage;
 use Livewire\Component;
 
 class ShowChat extends Component
@@ -36,6 +37,8 @@ class ShowChat extends Component
         $chat->save();
 
         $this->reset('chat_message');
+        //send notification
+        $this->reciever->notify(new newMessage($chat));
     }
 
     public function delete($id)
