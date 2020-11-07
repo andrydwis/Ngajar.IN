@@ -193,7 +193,7 @@
                     </td>
 
                     <td>
-                        {{$order->duration}}
+                        {{$order->duration}} menit
                     </td>
                 </tr>
 
