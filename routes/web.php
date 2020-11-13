@@ -63,6 +63,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard/mentor-order-request/{user:name}', [MentorController::class, 'orderRequest'])->name('dashboard.mentor-order-request');
         Route::patch('/dashboard/mentor-order-request/{order:id}/accept', [MentorController::class, 'acceptRequest'])->name('dashboard.accept-mentor-order-request');
         Route::patch('/dashboard/mentor-order-request/{order:id}/decline', [MentorController::class, 'declineRequest'])->name('dashboard.decline-mentor-order-request');
+
+        Route::view('/dashboard/user-payment', 'mentor.payment')->name('dashboard.user-payment');
+        Route::post('/dashboard/user-payment/save', [MentorController::class, 'savePayment'])->name('dashboard.user-payment.save');
     });
 
     Route::middleware(['admin', 'verified'])->group(function () {
@@ -75,6 +78,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/dashboard/user-skill', [SkillController::class, 'store'])->name('dashboard.add-user-skill');
         Route::patch('/dashboard/user-skill/{skill:id}', [SkillController::class, 'update'])->name('dashboard.edit-user-skill');
         Route::delete('/dashboard/user-skill/{skill:id}', [SkillController::class, 'destroy'])->name('dashboard.delete-user-skill');
+
+        Route::get('/dashboard/payment-request', [AdminController::class, 'showPaymentRequest'])->name('dashboard.payment-request');
+        Route::patch('/dashboard/payment-request/{payment:id}', [AdminController::class, 'PaymentProcess'])->name('dashboard.payment-request.process');
     });
 
     

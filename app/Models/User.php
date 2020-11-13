@@ -65,4 +65,14 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Rating');
     }
+
+    public function payment()
+    {
+        return $this->hasOne('App\Models\UserPayment');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany('App\Models\Payment');
+    }
 }

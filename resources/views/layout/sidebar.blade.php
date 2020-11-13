@@ -49,12 +49,14 @@
                 <a class="collapse-item" href="{{ route('dashboard.skill') }}">Skill</a>
                 <a class="collapse-item" href="{{ route('dashboard.mentor-order-request', ['user' => auth()->user()]) }}">Order Request</a>
                 <a class="collapse-item" href="{{ route('dashboard.chat') }}">Chat</a>
+                <a class="collapse-item" href="{{ route('dashboard.user-payment') }}">User payment</a>
                 @endif
                 @if(Auth::user()->role == 'admin')
                 <a class="collapse-item" href="{{ route('dashboard.user-unverified') }}">User Unverified</a>
                 <a class="collapse-item" href="{{ route('dashboard.user-verified') }}">User Verified</a>
                 <a class="collapse-item" href="{{ route('dashboard.user-skill') }}">User Skill</a>
                 <a class="collapse-item" href="{{ route('dashboard.chat') }}">Chat</a>
+                <a class="collapse-item" href="{{ route('dashboard.payment-request') }}">Payment Request</a>
                 @endif
                 @endauth
                 @guest

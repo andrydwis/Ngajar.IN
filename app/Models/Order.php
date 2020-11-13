@@ -34,4 +34,9 @@ class Order extends Model
     {
         return $this->hasOne('App\Models\Rating');
     }
+
+    public function payment()
+    {
+        return $this->hasOne('App\Models\Payment');
+    }
 }
