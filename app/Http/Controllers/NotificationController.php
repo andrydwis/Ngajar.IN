@@ -15,7 +15,7 @@ class NotificationController extends Controller
         }
 
         if ($request->status_code == 200) {
-            $order = Order::find($request->order_id);
+            $order = Order::where('order_id', $request->id)->first();
             $order->status = 'payment successful';
             $order->save();
             session()->flash('status', 'pembayaran sukses asekk');

@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class OrderController extends Controller
 {
@@ -61,6 +62,7 @@ class OrderController extends Controller
             $request->duration = $hour_start->diffInMinutes($hour_end);
 
             $order = new Order();
+            $order->order_id = Str::uuid();
             $order->client_id = auth()->user()->id;
             $order->mentor_id = $request->mentor_id;
             $order->day = $request->day;

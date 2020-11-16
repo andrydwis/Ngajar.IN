@@ -121,7 +121,7 @@
                                 </td>
 
                                 <td>
-                                    Invoice #: {{ $order->id }}<br>
+                                    Invoice #: {{ $order->order_id }}<br>
                                     Created: {{ now()->format('D, d-m-Y') }}
                                 </td>
                             </tr>

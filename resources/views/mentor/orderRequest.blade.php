@@ -72,6 +72,9 @@
                                             </div>
                                         </div>
                                         @endif
+                                        @if($order->status == 'waiting payment')
+                                        @livewire('delete-expired-order', ['order' => $order])
+                                        @endif
                                         @if($order->status == 'finished')
                                         @if($order->payment)
                                             @if($order->payment->status == 'requested')

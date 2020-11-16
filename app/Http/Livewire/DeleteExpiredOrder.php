@@ -5,12 +5,9 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use Carbon\Carbon;
 use Livewire\Component;
-use Midtrans\Config;
-use Midtrans\Snap;
 
-class Pay extends Component
+class DeleteExpiredOrder extends Component
 {
-
     public $order;
     public $now;
     public $hour_start;
@@ -28,40 +25,23 @@ class Pay extends Component
         $isGoing = $this->now->between(Carbon::parse($this->order->day. ' ' .$this->hour_start), Carbon::parse($this->order->day. ' ' .$this->hour_end));
         $isFinish = $this->now->greaterThan(Carbon::parse($this->order->day. ' ' .$this->hour_end));
         if($isLess){
-            $this->condition = 'pay';
+            $this->condition = 'waiting';
         }elseif($isGoing){
-            $this->condition = 'ongoing';
+            $this->condition = 'waiting';
         }elseif($isFinish){
             $this->condition = 'over';
         }
         
     }
-
+    
     public function render()
     {
-        return view('livewire.pay');
+        return view('livewire.delete-expired-order');
     }
 
-    public function pay(Order $order)
-    {
-        Config::$serverKey = 'SB-Mid-server-hHE4EtJDMWsMRnkfWkMV6SOS';
-        Config::$isProduction = false;
-        Config::$isSanitized = true;
-        Config::$is3ds = true;
+    public function cancel(Order $order){
+        $order->delete();
 
-
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $order->order_id,
-                'gross_amount' => $order->fee,
-            ),
-            'customer_details' => array(
-                'first_name' => $order->client->name,
-                'email' => $order->client->email,
-                'phone' => $order->client->phone,
-            ),
-        );
-        $link = Snap::createTransaction($params);
-        return redirect()->away($link->redirect_url);
+        return redirect()->route('dashboard.mentor-order-request', ['user' => auth()->user()]);
     }
 }
