@@ -1,11 +1,11 @@
 @extends('layout.app')
 @section('content')
-<div class="card o-hidden border-0 shadow-lg my-5">
-    <div class="card-body p-0">
+<section id="hero" class="d-flex align-items-center mt">
+                    <div class="container">
+                        <div class="row">        
+         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+       
         <!-- Nested Row within Card Body -->
-        <div class="row">
-        <img src="\img\pp2.png" width=400 class="img-fluid">
-            <div class="col-lg-7">
                 <div class="p-5">
                     <div class="text-center">
                         <h1 class="h4 text-gray-900 mb-4">Update Your Password</h1>
@@ -35,6 +35,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+</div>
     </div>
 </div>
 @endsection('content')

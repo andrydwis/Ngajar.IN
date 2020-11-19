@@ -1,4 +1,8 @@
-<div>
+<section id="hero" class="portfolio">
+    <div class="container">
+        <div class="row">     
+         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+         
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">{{ $skill_selected ?? 'Daftar Pengajar' }}</h1>
     </div>
@@ -58,3 +62,9 @@
         @endforeach
     </div>
 </div>
+        </div>        
+        </div>
+         </div>
+           </div>
+        </section>
+      
