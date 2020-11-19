@@ -1,10 +1,5 @@
 @extends('layout.app')
 @section('content')
-<section id="hero" class="d-flex align-items-center mt">
-                    <div class="container">
-                        <div class="row">        
-         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
-        
 @include('layout.alert')
 <div class="card shadow mb-4">
     <div class="card-body">
@@ -23,40 +18,14 @@
                         <td>{{ $schedule->hour_start }}</td>
                         <td>{{ $schedule->hour_end }}</td>
                         <td>
-
-                            <button class="btn btn-success" data-toggle="modal" data-target="#editSchedule{{ $schedule->id }}">Edit</button>
+                            <button type="button" name="edit" class="btn btn-success" data-toggle="modal" data-target="#editSchedule{{ $schedule->id }}">Edit</button>
                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteSchedule{{ $schedule->id }}">Delete</button>
-                            
-                            <div class="modal fade" id="deleteSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
                                         </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('dashboard.edit-schedule', ['schedule' => $schedule]) }}" method="post">
-                                                @csrf
-                                                @method('delete')
-                                                <p class="text-center">Are you sure want to delete this schedule ?</p>
-                                                <button class="btn btn-success" type="submit">Yes</button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            
-                        </td>
-                        
-                    </tr>
-                    <div class="modal fade" id="editSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
-                                        </div>
-                                        
                                         <div class="modal-body">
                                             <form action="{{ route('dashboard.edit-schedule', ['schedule' => $schedule]) }}" method="post">
                                                 @csrf
@@ -97,7 +66,6 @@
                                                     </div>
                                                     @enderror
                                                 </div>
-                                                
                                                 <button class="btn btn-success" type="submit">Save</button>
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                                             </form>
@@ -105,20 +73,33 @@
                                     </div>
                                 </div>
                             </div>
-                            
+                            <div class="modal fade" id="deleteSchedule{{ $schedule->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title" id="exampleModalLabel">Schedule</h6>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('dashboard.edit-schedule', ['schedule' => $schedule]) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <p class="text-center">Are you sure want to delete this schedule ?</p>
+                                                <button class="btn btn-success" type="submit">Yes</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                     @endforeach
-                    
                 </tbody>
-                
             </table>
         </div>
         <button class="btn btn-primary" data-toggle="modal" data-target="#addSchedule">Add new schedule</button>
     </div>
-    
-    
 </div>
-
-
 <!-- pop up add -->
 <div class="modal fade" id="addSchedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -172,9 +153,4 @@
         </div>
     </div>
 </div>
-
-</div>
-</div>
-</div>
-</section>
 @endsection
