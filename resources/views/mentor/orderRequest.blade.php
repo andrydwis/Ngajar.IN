@@ -1,10 +1,5 @@
 @extends('layout.app')
 @section('content')
-<section id="hero" class="d-flex align-items-center mt">
-        <div class="container">
-            <div class="row">        
-                 <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
-
 @include('layout.alert')
 <div class="content">
     <div class="row">
@@ -104,9 +99,4 @@
         </div>
     </div>
 </div>
-
-</div>
-</div>
-</div>
-</section>
 @endsection

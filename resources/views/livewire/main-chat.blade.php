@@ -1,17 +1,6 @@
-
-<section id="hero" class="d-flex align-items-center">
-                    <div class="container">
-                        <div class="row">   
-
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Chat</title>
-		</head>
-	<!--Coded With Love By Mutiullah Samim-->
-        
+<div>
+    <div class="card">
+        <div class="card-header">Chat Menu</div>
         <div class="card-body">
             <div class="row">
                 <div class="col-2">
@@ -23,31 +12,25 @@
                 </div>
                 <div class="col-10">
                     <div style="overflow-y:auto; height:400px" id="chat-container">
-                    
                         <div wire:poll>
                             @forelse($chats as $chat)
-                            
                             @if($chat->sender_id == $sender->id)
-                             
-                            <div class="d-flex justify-content-end mb-4">
-                            
-                            <button class="btn float-left" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
-                            <div class="msg_cotainer_send">
+                            <div class="card bg-success text-white mt-1">
+                                <div class="card-body">
                                     {{ $chat->chat }}
-                                    <span class="msg_time">{{ $chat->created_at->diffForHumans() }}</span>
-                            </div>
-                            
-                            </div>
-                                
-
-                            @elseif($chat->reciever_id == $sender->id)
-                            <div class="d-flex justify-content-start mb-4">                            
-                                <div class="msg_cotainer">
-                                    {{ $chat->chat }}                                    
-                                <span class="msg_time">
+                                </div>
+                                <div class="card-footer text-secondary">
                                     {{ $chat->created_at->diffForHumans() }}
-                                </span>
-                                
+                                    <button class="btn btn-sm btn-circle btn-danger float-right" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            @elseif($chat->reciever_id == $sender->id)
+                            <div class="card bg-primary text-white mt-1">
+                                <div class="card-body">
+                                    {{ $chat->chat }}
+                                </div>
+                                <div class="card-footer text-secondary">
+                                    {{ $chat->created_at->diffForHumans() }}
                                 </div>
                             </div>
                             @endif

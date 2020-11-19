@@ -1,12 +1,6 @@
 @extends('layout.app')
 @section('content')
-<section id="hero" class="d-flex align-items-center mt">
-                    <div class="container">
-                        <div class="row">        
-         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" >
-        
-
-         @include('layout.alert')
+@include('layout.alert')
 <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body">
         <div class="table-responsive" style="max-height: 442px;">
@@ -47,10 +41,7 @@
             </table>
         </div>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSkill">Add New Skill</button>
-       </div> 
-       </div>
-       </div>
-       </div>
+
         <!-- pop up add -->
         <div class="modal fade" id="addSkill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">

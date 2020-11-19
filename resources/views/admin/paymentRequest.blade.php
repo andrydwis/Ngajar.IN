@@ -1,13 +1,8 @@
 @extends('layout.app')
 @section('content')
-<section id="hero" class="d-flex align-items-center mt">
-                    <div class="container">
-                        <div class="row">        
-         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
-        
 @include('layout.alert')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Payment Request</h1>
+    <h1 class="h3 mb-0 text-gray-800">Payemnt Request</h1>
 </div>
 <div class="row">
     <div class="col">
@@ -61,9 +56,6 @@
                 </table>
             </div>
         </div>
-    </div>
-</div>
-</div>
     </div>
 </div>
 @endsection
