@@ -1,6 +1,7 @@
-@extends('layout.app')
-@section('content')
-<div class="card o-hidden border-0 shadow-lg my-5">
+<section id="register" class="Register">
+<div class="container" data-aos="fade-up">
+<div class="section-title">
+<h2>Register</h2></div>
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
@@ -79,4 +80,3 @@
         </div>
     </div>
 </div>
-@endsection
