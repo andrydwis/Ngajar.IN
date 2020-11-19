@@ -1,13 +1,16 @@
-<div class="card shadow mb-4">
-    <div class="card-body">
+<section id="request" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Request</h2>
+        </div>
+
         <div class="row">
             <div class="col-lg-12">
-                <div class="p-5">
+                <div class="p-2">
 
                     <h2 class="m-0 font-weight-bold text-primary">Request Form</h2><br>
-                    The styling for this basic card example is created by using default Bootstrap utility classes. By using utility classes, the style of the card component can be easily modified with no need for any custom CSS!
-
-                    <br><br>
+                    
 
                     <form class="user" action="{{ route('dashboard.add-order-request') }}" method="post">
                         @csrf
@@ -67,7 +70,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-block btn-user" type="submit">Reqest</button>
+                        <button class="btn btn-primary btn-block btn-user" type="submit">Request</button>
                         <a href="{{ route('dashboard.chat-to-mentor', ['user' => $user]) }}" class="btn btn-success btn-block btn-user">Chat dengan {{ $user->name }}</a>
                     </form>
                 </div>
@@ -75,3 +78,11 @@
         </div>
     </div>
 </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+

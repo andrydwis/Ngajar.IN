@@ -1,3 +1,4 @@
+
 <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addreview{{$order->id}}">
         Review
@@ -38,5 +39,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>

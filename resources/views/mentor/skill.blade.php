@@ -1,8 +1,15 @@
 @extends('layout.app')
 @section('content')
-@include('layout.alert')
-<div class="card o-hidden border-0 shadow-lg my-5">
+<section id="hero" class="d-flex align-items-center mt">
+        <div class="container">
+            <div class="row">        
+                 <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+
+                 @include('layout.alert')
+<div class="card o-hidden border-0 shadow-lg my-1">
+
     <div class="card-body">
+    
         <div class="table-responsive" style="max-height: 442px;">
             <table class="table">
                 <thead class=" text-primary">
@@ -77,4 +84,9 @@
         </div>
     </div>
 </div>
+
+</div>
+</div>
+</div>
+</section>
 @endsection

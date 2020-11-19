@@ -1,14 +1,10 @@
-@extends('layout.app')
-@section('content')
-<div class="row justify-content-center">
+<section id="login" class="login">
+<div class="container" data-aos="fade-up">
+<div class="section-title">
+          <h2>Login</h2></div>
 
-    <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                <img src="\img\booklover.png" class="img-fluid" height=400 width=400>
+        <div class="row">
+                <img src="\img\booklover.png" class="img-fluid animated" alt="" height=400 width=400>
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
@@ -46,9 +42,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+          
 
 </div>
-@endsection
+</section>

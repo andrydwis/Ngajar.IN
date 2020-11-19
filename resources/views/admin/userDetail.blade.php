@@ -1,6 +1,10 @@
 @extends('layout.app')
 @section('content')
-<div class="card o-hidden border-0 shadow-lg my-5">
+<section id="hero" class="d-flex align-items-center mt">
+                    <div class="container">
+                        <div class="row">        
+         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+         
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
@@ -40,4 +44,9 @@
         </div>
     </div>
 </div>
+
+</div>
+    </div>
+</div>
+</section>
 @endsection('content')
