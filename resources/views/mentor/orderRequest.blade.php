@@ -83,10 +83,10 @@
                                         @if($order->status == 'finished')
                                         @if($order->payment)
                                             @if($order->payment->status == 'requested')
-                                            <button class="btn btn-warning">Menunggu verifikasi admin</button>
+                                            <button class="btn btn-warning">Waiting verify by admin</button>
                                             @endif
                                             @if($order->payment->status == 'finished')
-                                            <button class="btn btn-success">Pembayaran Fee sukses</button>
+                                            <button class="btn btn-success">Payment Succes!!</button>
                                             @endif
                                         @else
                                         @livewire('request-payment', ['order' => $order])

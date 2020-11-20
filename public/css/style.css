@@ -2055,3 +2055,12 @@ margin-bottom: 15px !important;
     padding-top: 4px;
   }
 }
+
+.text-gray-500 {
+  color: #1b2fdd !important;
+}
+
+.font-weight-bold {
+  font-weight: 700 !important;
+  color: #0d0d0e !important;
+}

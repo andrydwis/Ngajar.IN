@@ -25,7 +25,7 @@ class RequestPayment extends Component
             $payment->status = 'requested';
             $payment->save();
         }else{
-            session()->flash('status', 'Anda belum mengatur akun pembayaran');
+            session()->flash('status', 'You have not set up a payment account');
         }
 
         $previous = URL::previous();

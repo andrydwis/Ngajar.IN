@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div>
-                <div class="small text-gray-500">{{ $notification->created_at->diffForHumans() }}</div>
-                <span class="font-weight-bold">Ada {{auth()->user()->unreadNotifications->where('data', $notification->data)->count('id')}} pesan baru dari {{ $notification->data['from']}}</span>
+                <div class="small text-gray-500 chat">{{ $notification->created_at->diffForHumans() }}</div>
+                <span class="font-weight-bold chat">New {{auth()->user()->unreadNotifications->where('data', $notification->data)->count('id')}} message from {{ $notification->data['from']}}</span>
             </div>
         </a>
         
@@ -37,7 +37,7 @@
             </div>
             <div>
                 <div class="small text-gray-500">...</div>
-                <span class="font-weight-bold">Tidak ada notifikasi baru</span>
+                <span class="font-weight-bold">No new notifications</span>
             </div>
         </a>
         @endforelse

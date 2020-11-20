@@ -16,10 +16,10 @@
                                 <th>Id Client</th>
                                 <th>Id Mentor</th>
                                 <th>Days</th>
-                                <th>Dari Pukul</th>
-                                <th>Sampai Pukul</th>
-                                <th>Durasi</th>
-                                <th>Biaya</th>
+                                <th>Start From</th>
+                                <th>Until</th>
+                                <th>Duration</th>
+                                <th>Fee</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </thead>

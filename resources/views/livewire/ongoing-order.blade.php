@@ -7,7 +7,7 @@
                         <div class="col-lg-12">
                             <div class="text-center">
                                 <br>
-                                <h1 class="m-0 font-weight-bold text-primary">Pembelajaran sedang berlangsung...</h1><br>
+                                <h1 class="m-0 font-weight-bold text-primary">Learning in progres.......</h1><br>
                                 <br>
 
                                 <div class="row">
@@ -37,13 +37,13 @@
                                                 <h4 class="text-secondary">Countdown Timer</h4>
                                                 <div id="clock">
                                                     <div><span id="hours">{{ $hours }}</span>
-                                                        <p>Jam</p>
+                                                        <p>Hour</p>
                                                     </div>
                                                     <div><span id="minutes">{{ $minutes }}</span>
-                                                        <p>Menit</p>
+                                                        <p>Minute</p>
                                                     </div>
                                                     <div><span id="seconds">{{ $seconds }}</span>
-                                                        <p>Detik</p>
+                                                        <p>Second</p>
                                                     </div>
                                                 </div>
                                             </div>

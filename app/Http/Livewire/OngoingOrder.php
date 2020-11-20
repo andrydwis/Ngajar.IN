@@ -37,7 +37,7 @@ class OngoingOrder extends Component
     {
         $this->order->status = 'finished';
         $this->order->save();
-        session()->flash('status', 'Proses pembelajran selesai');
+        session()->flash('status', 'Learning Complete!! Thanks for joining us');
         return redirect()->route('dashboard.order-request', ['user' => auth()->user()]);
     }
 }

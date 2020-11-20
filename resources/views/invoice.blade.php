@@ -117,7 +117,7 @@
                             <tr>
                                 <td>
                                     <h1>Ngajar.in</h1>
-                                    <p>Susah sama aku, bahagia sama dia</p>
+                                    <p>Thanks for joining us!! Keep spirit to study guys</p>
                                 </td>
 
                                 <td>
@@ -159,7 +159,7 @@
 
                 <tr class="item">
                     <td>
-                        Hari
+                        Day
                     </td>
 
                     <td>
@@ -169,7 +169,7 @@
 
                 <tr class="item">
                     <td>
-                        Dari Pukul
+                        Hour Start
                     </td>
 
                     <td>
@@ -179,7 +179,7 @@
 
                 <tr class="item">
                     <td>
-                        Sampai Pukul
+                        Hour End
                     </td>
 
                     <td>
@@ -189,17 +189,17 @@
 
                 <tr class="item">
                     <td>
-                        Durasi
+                        Duration
                     </td>
 
                     <td>
-                        {{$order->duration}} menit
+                        {{$order->duration}} minute
                     </td>
                 </tr>
 
                 <tr class="item last">
                     <td>
-                        Biaya
+                        Fee
                     </td>
 
                     <td>

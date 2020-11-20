@@ -59,10 +59,10 @@ class ScheduleController extends Controller
             $schedule->hour_start = $request->hour_start;
             $schedule->hour_end = $request->hour_end;
             $schedule->save();
-            session()->flash('status', 'jadwal sukses dibuat !');
+            session()->flash('status', 'Schedule successfully created');
             return back();
         } else {
-            session()->flash('status', 'Jadwal sudah ada !');
+            session()->flash('status', 'Schedule already axist!');
             return back();
         }
     }
@@ -112,10 +112,10 @@ class ScheduleController extends Controller
             $schedule->hour_start = $request->hour_start;
             $schedule->hour_end = $request->hour_end;
             $schedule->save();
-            session()->flash('status', 'jadwal sukses diupdate !');
+            session()->flash('status', 'Schedule succesfully updated');
             return back();
         } else {
-            session()->flash('status', 'Jadwal sudah ada !');
+            session()->flash('status', 'Schedule already axist!');
             return back();
         }
 
@@ -133,7 +133,7 @@ class ScheduleController extends Controller
     {
         //
         $schedule->delete();
-        session()->flash('status', 'jadwal sukses dihapus !');
+        session()->flash('status', 'Schedule succesfully deleted');
         return back();
     }
 }

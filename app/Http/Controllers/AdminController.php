@@ -55,7 +55,7 @@ class AdminController extends Controller
         $payment->status = 'finished';
         $payment->save();
 
-        session()->flash('status', 'Pembayaran berhasil dilakukan');
+        session()->flash('status', 'Payment Succesfull!!');
         return back();
     }
 }

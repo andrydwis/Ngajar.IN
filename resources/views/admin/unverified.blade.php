@@ -7,7 +7,7 @@
            
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="h3 mb-0 text-gray-800">Verifikasi Mentor</h2>
+    <h2 class="h3 mb-0 text-gray-800">Verify Mentor</h2>
 </div>
 <div class="row">
     <div class="col">
@@ -25,12 +25,12 @@
                             <td>{{ $user->name }}</td>
                             <td>
                                 <a href="{{ route('dashboard.user-detail', ['user' => $user]) }}" class="btn btn-primary">Detail</a>
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verify{{ $user->id }}">Verifikasi</button>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verify{{ $user->id }}">Verify</button>
                                 <div class="modal fade" id="verify{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">Verifikasi akun</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">Verify Account</h6>
                                             </div>
                                             <div class="modal-body">
                                                 <form action="{{ route('dashboard.verify', ['user' => $user]) }}" method="post">
@@ -55,7 +55,7 @@
     </div>
 </div>
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h2 class="h3 mb-0 text-gray-800">Verifikasi Client</h2>
+    <h2 class="h3 mb-0 text-gray-800">Verify Client</h2>
 </div>
 <div class="row">
     <div class="col">
@@ -73,12 +73,12 @@
                             <td>{{ $user->name }}</td>
                             <td>
                                 <a href="{{ route('dashboard.user-detail', ['user' => $user]) }}" class="btn btn-primary">Detail</a>
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verify{{ $user->id }}">Verifikasi</button>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#verify{{ $user->id }}">Verify</button>
                                 <div class="modal fade" id="verify{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">Verifikasi akun</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">Verify Account</h6>
                                             </div>
                                             <div class="modal-body">
                                                 <form action="{{ route('dashboard.verify', ['user' => $user]) }}" method="post">

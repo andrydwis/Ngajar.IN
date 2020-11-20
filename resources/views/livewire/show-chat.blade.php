@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <div class="card-header">
-            Chat dengan {{ $reciever->name }}
+            Chat with {{ $reciever->name }}
         </div>
         <div class="card-body">
             <div style="overflow-y:auto; height:200px" id="chat-container">

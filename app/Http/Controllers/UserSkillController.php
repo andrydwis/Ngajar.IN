@@ -50,11 +50,11 @@ class UserSkillController extends Controller
         $user = User::find(auth()->user()->id);
         //check is skill is exist or not
         if ($user->skills()->find($request->skill)) {
-            session()->flash('status', 'skill sudah ada !');
+            session()->flash('status', 'Skill already axist!');
             return back();
         } else {
             $user->skills()->attach($request->skill);
-            session()->flash('status', 'skill sukses ditambahkan !');
+            session()->flash('status', 'Skill succesfully added');
             return back();
         }
     }
@@ -104,7 +104,7 @@ class UserSkillController extends Controller
         //
         $user = User::find(auth()->user()->id);
         $user->skills()->detach($id);
-        session()->flash('status', 'skill sukses dihapus !');
+        session()->flash('status', 'Skill succesfully deleted');
         return back();
     }
 }

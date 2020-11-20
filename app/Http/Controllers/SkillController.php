@@ -48,7 +48,7 @@ class SkillController extends Controller
         $skill = new Skill();
         $skill->skill = $request->skill;
         $skill->save();
-        session()->flash('status', 'skill sukses ditambahkan !');
+        session()->flash('status', 'Skill succesfully added');
         return back();
     }
 
@@ -96,7 +96,7 @@ class SkillController extends Controller
     {
         //
         $skill->delete();
-        session()->flash('status', 'skill sukses dihapus !');
+        session()->flash('status', 'Skill succesfully deleted');
         return back();
     }
 }

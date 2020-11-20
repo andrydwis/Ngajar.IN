@@ -38,7 +38,7 @@
 
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
         <div class="text-center">
-                        <h3 class="m-0 font-weight-bold text-primary">Jadwal</h3><br>
+                        <h3 class="m-0 font-weight-bold text-primary">Schedule</h3><br>
 
                         <div class="row">
                             @forelse($schedules as $schedule)
@@ -60,8 +60,8 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="h6 font-weight-bold text-danger text-uppercase mb-1">Mentor belum menulis jadwal</div>
-                                            <div class="h6 mb-0 font-weight-bold text-gray-800">Mohon cek beberapa saat lagi</div>
+                                            <div class="h6 font-weight-bold text-danger text-uppercase mb-1">Mentor have not written a schedule</div>
+                                            <div class="h6 mb-0 font-weight-bold text-gray-800">Please wait a minute</div>
                                         </div>
                                     </div>
                                 </div>

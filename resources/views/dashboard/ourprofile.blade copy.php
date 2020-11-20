@@ -20,7 +20,7 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h2 class="m-0 font-weight-bold text-primary">Apa itu Ngajar.in?</h2>
+                  <h2 class="m-0 font-weight-bold text-primary">What is Ngajar.in?</h2>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">

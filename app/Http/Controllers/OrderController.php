@@ -77,10 +77,10 @@ class OrderController extends Controller
             }
             $order->status = 'pending';
             $order->save();
-            session()->flash('status', 'Order request sukses, tolong entenono mentor e acc yoo !');
+            session()->flash('status', 'Order request success, please wait mentor to accept your request');
             return back();
         } else {
-            session()->flash('status', 'Order request telah ada, tolong entenono sek lah !');
+            session()->flash('status', 'Order request is available, please wait!');
             return back();
         }
     }
@@ -130,7 +130,7 @@ class OrderController extends Controller
         //
         $order->delete();
 
-        session()->flash('status', 'Order request berhasil dibatalkan, alhamdulilah :) !');
+        session()->flash('status', 'Order request canceled !');
         return back();
     }
 

@@ -4,7 +4,7 @@
          <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
          
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ $skill_selected ?? 'Daftar Pengajar' }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ $skill_selected ?? 'List Mentor' }}</h1>
     </div>
     <div class="form-group">
         <div class="row">
@@ -13,14 +13,14 @@
                     Select Skill
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <button type="button" class="dropdown-item" wire:click="resetFilterSkill">Semua</button>
+                    <button type="button" class="dropdown-item" wire:click="resetFilterSkill">All</button>
                     @foreach($skills as $skill)
                     <button type="button" class="dropdown-item" wire:click="filterSkill({{ $skill }})">{{ $skill->skill }}</button>
                     @endforeach
                 </div>
             </div>
             <div class="col-2">
-                <input type="text" class="form-control" wire:model.lazy="search" placeholder="Cari nama mentor">
+                <input type="text" class="form-control" wire:model.lazy="search" placeholder="Search Mentor">
             </div>
         </div>
 

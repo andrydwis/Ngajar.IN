@@ -3,8 +3,8 @@
                         <div class="row">        
          <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
                   
-  <h1>ayo sinau hehehehe</h1>
-          <h2>cek pinter xixixi</h2>
+  <h1>Welcome to Ngajar.in</h1>
+          <h2>Let's learn programming here guys!!</h2>
           <div class="d-lg-flex">
             <a href="#about" class="btn-get-started scrollto">Join Us Now</a>
           </div>

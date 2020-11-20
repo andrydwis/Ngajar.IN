@@ -18,10 +18,10 @@ class NotificationController extends Controller
             $order = Order::where('order_id', $request->id)->first();
             $order->status = 'payment successful';
             $order->save();
-            session()->flash('status', 'pembayaran sukses asekk');
+            session()->flash('status', 'Payment Succesfully!!');
             return redirect()->route('dashboard.order-request', ['user' => auth()->user()]);
         } elseif ($request->status_code == 201) {
-            session()->flash('status', 'pembayaran gagal');
+            session()->flash('status', 'Payment Failed!!');
             return redirect()->route('dashboard.order-request', ['user' => auth()->user()]);
         }
     }

@@ -54,7 +54,7 @@
                             @empty
                             <div class="card bg-danger text-white mt-1">
                                 <div class="card-body">
-                                    Chat masih kosong kayak hatimu kyaaa.. >.< </div> </div> @endforelse </div> <br>
+                                    Chat is empty! Lets start chat </div> </div> @endforelse </div> <br>
                                        
                                 </div>
                                 @if($reciever_select)

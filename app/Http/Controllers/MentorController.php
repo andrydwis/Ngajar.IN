@@ -25,7 +25,7 @@ class MentorController extends Controller
     {
         $order->status = 'waiting payment';
         $order->save();
-        session()->flash('status', 'Request berhasil di acc, menunggu pembayaran dr user');
+        session()->flash('status', 'Request successfully received, waiting for payment by client');
         return back();
     }
 
@@ -33,7 +33,7 @@ class MentorController extends Controller
     {
         $order->status = 'decline';
         $order->save();
-        session()->flash('status', 'Request berhasil di tolak');
+        session()->flash('status', 'Request declined!');
         return back();
     }
 
@@ -49,7 +49,7 @@ class MentorController extends Controller
             $userPayment->type = $request->type;
             $userPayment->account_number = $request->account_number;
             $userPayment->save();
-            session()->flash('status', 'user payment berhasil diupdate');
+            session()->flash('status', 'Payment by client updated successfully');
             return back();
         } else {
             $userPayment = new UserPayment();
@@ -57,7 +57,7 @@ class MentorController extends Controller
             $userPayment->type = $request->type;
             $userPayment->account_number = $request->account_number;
             $userPayment->save();
-            session()->flash('status', 'user payment berhasil diupdate');
+            session()->flash('status', 'Payment by client updated successfully');
             return back();
         }
     }

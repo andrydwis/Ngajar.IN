@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label>Tipe Pembayaran</label>
                         <select class="custom-select @error('type') {{ 'is-invalid' }} @enderror" name="type">
-                            <option selected disabled>Pilih Bank atau metode lain:</option>
+                            <option selected disabled>Choose payment method:</option>
                             <option value="BCA">BCA</option>
                             <option value="BRI">BRI</option>
                             <option value="BNI">BNI</option>

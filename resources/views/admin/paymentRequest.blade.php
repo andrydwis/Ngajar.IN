@@ -37,13 +37,13 @@
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h6 class="modal-title" id="exampleModalLabel">Pembayaran Order ke Mentor</h6>
+                                                <h6 class="modal-title" id="exampleModalLabel">Order payment to mentor</h6>
                                             </div>
                                             <div class="modal-body">
                                                 <form action="{{ route('dashboard.payment-request.process', ['payment' => $payment]) }}" method="post">
                                                     @csrf
                                                     @method('patch')
-                                                    <p>Apakah anda sudah melakukan pembayaran ?</p>
+                                                    <p>Have you completed payment ?</p>
                                                     <button type="submit" class="btn btn-success">Yes</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                                                 </form>
