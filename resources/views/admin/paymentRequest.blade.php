@@ -32,7 +32,7 @@
                             <td>{{ $payment->user->payment->account_number }}</td>
                             <td>
                                 @if($payment->status == 'requested')
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#payment{{ $payment->id }}">Bayar</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#payment{{ $payment->id }}">Pay</button>
                                 <div class="modal fade" id="payment{{ $payment->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 @else
-                                <button class="btn btn-success">Sukses dibayar</button>
+                                <button class="btn btn-success">Completed</button>
                                 @endif
                             </td>
                         </tr>

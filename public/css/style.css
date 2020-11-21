@@ -1811,7 +1811,7 @@ position: relative;
 position: absolute;
 left: 0;
 bottom: -15px;
-color: rgba(255,255,255,0.5);
+color: rgba(0, 0, 0, 0.5);
 font-size: 10px;
 }
 .msg_time_send{
@@ -1866,6 +1866,120 @@ background-color: rgba(0,0,0,0.2);
 margin-bottom: 15px !important;
 }
 }
+
+.icon-circle {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-left-primary {
+  border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-bottom-primary {
+  border-bottom: 0.25rem solid #4e73df !important;
+}
+
+.border-left-secondary {
+  border-left: 0.25rem solid #858796 !important;
+}
+
+.border-bottom-secondary {
+  border-bottom: 0.25rem solid #858796 !important;
+}
+
+.border-left-success {
+  border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-bottom-success {
+  border-bottom: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-info {
+  border-left: 0.25rem solid #36b9cc !important;
+}
+
+.border-bottom-info {
+  border-bottom: 0.25rem solid #36b9cc !important;
+}
+
+.border-left-warning {
+  border-left: 0.25rem solid #f6c23e !important;
+}
+
+.border-bottom-warning {
+  border-bottom: 0.25rem solid #f6c23e !important;
+}
+
+.border-left-danger {
+  border-left: 0.25rem solid #e74a3b !important;
+}
+
+.border-bottom-danger {
+  border-bottom: 0.25rem solid #e74a3b !important;
+}
+
+.border-left-light {
+  border-left: 0.25rem solid #f8f9fc !important;
+}
+
+.border-bottom-light {
+  border-bottom: 0.25rem solid #f8f9fc !important;
+}
+
+.border-left-dark {
+  border-left: 0.25rem solid #5a5c69 !important;
+}
+
+.border-bottom-dark {
+  border-bottom: 0.25rem solid #5a5c69 !important;
+}
+
+.progress-sm {
+  height: .5rem;
+}
+
+.rotate-15 {
+  transform: rotate(15deg);
+}
+
+.rotate-n-15 {
+  transform: rotate(-15deg);
+}
+
+/*--------------------------------------------------------------
+# Timer
+--------------------------------------------------------------*/
+
+    
+     #clock > div {
+         border-radius: 5px;
+         background: #ffa500;
+         padding: 20px 20px 10px 20px;
+         color: #fff;
+         display: inline-block;
+     }
+     #clock > div > p {
+         font-size: 12px;
+     }
+     #days, #hours, #minutes, #seconds {
+         
+         font-size: 20px;
+         display: inline-block;
+         width: 40px;
+     }
+     span.turn {
+         animation: turn 0.7s ease;
+     }
+     @keyframes turn {
+         0% {transform: rotateX(0deg)}
+         100% {transform: rotateX(360deg)}
+     }
 
 /*--------------------------------------------------------------
 # Footer

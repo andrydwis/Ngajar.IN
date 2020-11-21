@@ -21,15 +21,18 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-10">
+
+                <div class="card col-10">
+                
                     <div style="overflow-y:auto; height:400px" id="chat-container">
                     
                         <div wire:poll>
+                        
                             @forelse($chats as $chat)
                             
                             @if($chat->sender_id == $sender->id)
                              
-                            <div class="d-flex justify-content-end mb-4">
+                            <div class="d-flex justify-content-end mb-4 mt-4">
                             
                             <button class="btn float-left" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
                             <div class="msg_cotainer_send">
@@ -41,7 +44,7 @@
                                 
 
                             @elseif($chat->reciever_id == $sender->id)
-                            <div class="d-flex justify-content-start mb-4">                            
+                            <div class="d-flex justify-content-start mb-4 mt-4">                            
                                 <div class="msg_cotainer">
                                     {{ $chat->chat }}                                    
                                 <span class="msg_time">
@@ -81,6 +84,7 @@
                     </div>
                 </div>
             </div>
+            
 @section('script')
 <script>
     const chat = document.getElementById("chat-container");

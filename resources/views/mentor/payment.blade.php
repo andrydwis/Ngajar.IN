@@ -17,7 +17,7 @@
                 <form action="">
                     @csrf
                     <div class="form-group">
-                        <label>Tipe Pembayaran</label>
+                        <label>Payment Method</label>
                         <select class="custom-select @error('type') {{ 'is-invalid' }} @enderror" name="type" disabled>
                             <option value="">{{auth()->user()->payment->type}}</option>
                         </select>
@@ -50,7 +50,7 @@
                 <form action="{{ route('dashboard.user-payment.save') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label>Tipe Pembayaran</label>
+                        <label>Payment Method</label>
                         <select class="custom-select @error('type') {{ 'is-invalid' }} @enderror" name="type">
                             <option selected disabled>Choose payment method:</option>
                             <option value="BCA">BCA</option>

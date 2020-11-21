@@ -1,3 +1,8 @@
+<section id="hero" class="d-flex align-items-center mt">
+                    <div class="container">
+                        <div class="row">        
+         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1">
+                  
 <div>
     <div class="card">
         <div class="card-header">
@@ -8,29 +13,32 @@
                 <div wire:poll>
                     @forelse($chats as $chat)
                     @if($chat->sender_id == $sender->id)
-                    <div class="card bg-success text-white mt-1">
-                        <div class="card-body">
-                            {{ $chat->chat }}
-                        </div>
-                        <div class="card-footer text-secondary">
-                            {{ $chat->created_at->diffForHumans() }}
-                            <button class="btn btn-sm btn-circle btn-danger float-right" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
+                    <div class="d-flex justify-content-end mb-4">
+                            
+                            <button class="btn float-left" wire:click="delete({{ $chat->id }})"><i class="fas fa-trash"></i></button>
+                            <div class="msg_cotainer_send">
+                                    {{ $chat->chat }}
+                                    <span class="msg_time">{{ $chat->created_at->diffForHumans() }}</span>
+                            </div>
+                            
+                            </div>
+                                
+
                     @elseif($chat->reciever_id == $sender->id)
-                    <div class="card bg-primary text-white mt-1">
-                        <div class="card-body">
-                            {{ $chat->chat }}
-                        </div>
-                        <div class="card-footer text-secondary">
-                            {{ $chat->created_at->diffForHumans() }}
-                        </div>
-                    </div>
+                    <div class="d-flex justify-content-start mb-4">                            
+                                <div class="msg_cotainer">
+                                    {{ $chat->chat }}                                    
+                                <span class="msg_time">
+                                    {{ $chat->created_at->diffForHumans() }}
+                                </span>
+                                
+                                </div>
+                            </div>
                     @endif
                     @empty
                     <div class="card bg-danger text-white mt-1">
                         <div class="card-body">
-                            Chat masih kosong kayak hatimu kyaaa..  >.<
+                        Chat is empty! Lets start chat 
                         </div>
                     </div>
                     @endforelse
@@ -65,6 +73,10 @@
         </div>
     </div>
 </div>
+</div>
+    </div>
+</div>
+</section>
 @section('script')
 <script>
     const chat = document.getElementById("chat-container");

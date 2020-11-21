@@ -17,7 +17,7 @@
         <a class="dropdown-item d-flex align-items-center" href="{{ route('dashboard.chat') }}">
             <div class="mr-3">
                 <div class="icon-circle bg-primary">
-                    <i class="fas fa-envelope text-white"></i>
+                    <i class="fas fa-envelope"></i>
                 </div>
             </div>
             <div>
